@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html
+  class=""
+  lang="{{ .Site.LanguageCode }}"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    {{ partial "meta.html" . }}
+
+    <title>{{ .Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+    {{/*
+    Have to explicitly filter to only include the 'RSS' type because we've
+    defined an RSS2 type as well, and output both of them. The RSS2 type exists
+    so that we can create a second identical RSS link at /feed.xml (which
+    apparently people are still subscribed to? Crazy!) - but we only want to
+    refer to the new feed location here, because that's the canonical one going
+    forward.
+    */}}
+    {{ with .OutputFormats.Get "rss" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    {{ partial "head_includes.html" . }}
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+

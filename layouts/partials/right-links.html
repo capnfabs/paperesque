@@ -1,0 +1,9 @@
+<ul class="list-unstyled right-links">
+{{ range .Site.Params.TopMenu }}
+          <li>
+            <a href="{{ .url | relURL }}">
+              <span class="post-title">{{ .name }}</span>
+            </a>
+          </li>
+{{ end }}
+</ul>

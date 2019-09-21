@@ -1,0 +1,18 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<!--
+Ok, so - see this: https://gohugo.io/content-management/shortcodes/#shortcodes-with-markdown
+The outcome is that by default, accessing .Inner returns the Markdown. Because we're putting it
+inside a div, it doesn't get rendered later. So we restore the old behaviour, which renders
+everything to HTML as a first step (but apparently breaks the TOC functionality).
+-->
+<!-- Expander: hides content by default, shows it when clicked on. -->
+<div class="expander look-sheet">
+{{ $radioGroup := anchorize (.Get "title") }}
+<h2>{{ .Get "title" }}</h2>
+<input type=radio id="expand-{{$radioGroup}}-show" class="hidden show" name="{{$radioGroup}}">
+<input type=radio id="expand-{{$radioGroup}}-hide" class="hidden hide" name="{{$radioGroup}}" checked="checked">
+<label class="button button-show" for="expand-{{$radioGroup}}-show">+ Expand</label><label class="button button-hide" for="expand-{{$radioGroup}}-hide">- Collapse</label>
+<div class="inner">
+{{ .Inner }}
+</div>
+</div>

@@ -1,0 +1,29 @@
+{{ partial "header.html" . }}
+<body lang="{{ .Site.LanguageCode }}">
+  <div class="nav-bkg">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
+      {{ partial "right-links" . }}
+    </nav>
+  </div>
+
+  <section id="main" class="content-container article-pad-v">
+    <div>
+      <h1 id="title" style="margin-bottom: 0.75em">{{.Site.Title}}</h1>
+      <ul id="list" class="list-unstyled list-of-titles">
+        {{ range .Site.Params.Menu }}
+          <li>
+            <a href="{{ .url | relURL }}">
+              <span class="post-title">{{ .name }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+  {{ partial "footer.html" . }}
+  </body>
+</html>
+

@@ -1,0 +1,28 @@
+{{ partial "header.html" . }}
+<body
+  class="{{ if .Draft }}draft{{ end }} look-sheet-bkg"
+  lang="{{ .Site.LanguageCode }}"
+  itemscope
+  itemtype="http://schema.org/Article">
+
+  <div class="nav-bkg">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
+      {{- if not .Parent.IsHome -}}
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
+      {{- end -}}
+      {{ partial "right-links" . }}
+    </nav>
+  </div>
+
+  <section id="main" class="content-container look-sheet article-pad-v">
+    <h1 itemprop="name" id="title">{{ .Title }}</h1>
+    <article itemprop="articleBody" id="content" class="article-body">
+      {{ .Content }}
+    </article>
+  </section>
+  {{ partial "footer.html" . }}
+  </body>
+</html>

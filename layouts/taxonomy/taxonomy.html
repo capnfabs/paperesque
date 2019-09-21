@@ -1,0 +1,32 @@
+{{ partial "header.html" . }}
+<body lang="{{ .Site.LanguageCode }}">
+  <div class="nav-bkg">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}{{ .Data.Plural }}">{{.Data.Plural}}</a>
+      {{ partial "right-links" . }}
+    </nav>
+  </div>
+
+  <section id="main" class="content-container article-pad-v">
+    <div>
+      <h1 id="title" style="margin-bottom: 0.75em">{{.Data.Term}}</h1>
+      <ul id="list" class="list-unstyled list-of-titles">
+        {{ range .Data.Pages.ByDate.Reverse }}
+          <li class="{{ if .Draft }}draft{{ end }}">
+            <a href="{{ .RelPermalink}}">
+              <span class="post-title">{{ .Title }}</span>
+              <br>
+              <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+
+  {{ partial "footer.html" . }}
+  </body>
+</html>

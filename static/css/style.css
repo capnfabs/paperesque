@@ -1,0 +1,407 @@
+body {
+  -webkit-font-smoothings: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  background-color: #eeeeee;
+  hyphens: none; /* reset changes from <p> */
+  /* border-radius: 4px; */
+}
+
+/* Reset these values when there's code inside a pre. Pre handles the styling then.*/
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  line-height: 1.4;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 5px -5px #777777;
+  max-width: 100%;
+  /* These two copied from chroma theme (syntax.css) */
+  color: #f8f8f2;
+  background-color: #272822;
+}
+
+pre,
+code {
+  font-family: monocode, monospace;
+  -webkit-font-smoothings: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Lora', serif;
+}
+
+h1#title {
+  /*Some UA stylesheets put h1 to 1.5em when in an article, so we reset it back for our title here.*/
+  font-size: 2em;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+}
+
+.content-container {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.content-container-narrow-pad {
+  padding: 0.5em;
+}
+
+.v-center {
+  align-items: center;
+}
+
+.look-sheet-bkg {
+  background-color: white;
+}
+
+@media(min-width: 720px) {
+  .content-container {
+    /* ACHTUNG:
+    Images are scaled in the fitfigure shortcode with an assumption that the
+    page is 652px wide. If you change this value, remeasure and change the value
+    there too. */
+    width: 45rem;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin: 0 auto;
+  }
+
+  .content-container-narrow-pad {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    width: 45rem;
+    margin: 0 auto;
+  }
+
+  .bottom-links {
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+  }
+
+  .look-sheet {
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 5px -5px #777777;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    min-height: 0px;
+    background-color: white;
+  }
+
+  .look-sheet-bkg {
+    background-color: #fffdf7;
+  }
+}
+
+.look-sheet-always {
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 5px -5px #777777;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  min-height: 0px;
+  background-color: white;
+}
+
+.article-pad-v {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+blockquote {
+  border-left: #777 0.25em solid;
+  padding: 0 1.25em;
+  margin: 2em 0 2em 1em;
+}
+
+.nav-bkg {
+  color: white;
+  box-shadow: 0 5px 5px -5px #777777;
+  background: #00223E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 80%, #FFA17F 80%);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 80%, #FFA17F 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.nav-bkg-50 {
+  color: white;
+  box-shadow: 0 5px 5px -5px #777777;
+  background: #00223E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 50%, #FFA17F 50%);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 50%, #FFA17F 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.nav-bkg a {
+  text-decoration: underline;
+}
+
+.pagewide-bar-padding {
+  padding: 0.5em 1em;
+}
+
+nav a, nav a:hover, nav a:visited {
+  color: white;
+}
+
+.post-date {
+  font-size: 0.875em;
+  color: #777;
+}
+
+.post-tags, .post-tags a, .post-tags a:hover, .post-tags a:visited {
+  color: #777;
+}
+
+.margin-top-2em {
+  margin-top: 2em;
+}
+
+.article-body h2,.article-body h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+kbd {
+  background-color: #333;
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 95%;
+  white-space: nowrap;
+}
+
+figure {
+  margin: 2em auto;
+  display: table;
+}
+
+figure:not(.no-border) video, figure:not(.no-border) img {
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 5px -5px #777777;
+  max-width: 100%;
+  background-color: white;
+}
+
+body {
+  background-color: #fffdf7;
+}
+
+figcaption {
+  margin-top: 0.75em;
+  font-style: italic;
+  text-align: center;
+  font-size: 0.75em;
+  color: #5e5e5e;
+}
+
+/*
+The figure is handling the margin here, its last child doesn't need to.
+This is a side-effect of using display: table on figure. This is gross and
+will have side-effects if you have multiple nested elements under the figcaption I think.
+*/
+figure figcaption :last-child {
+  margin-bottom: 0;
+}
+
+.footnotes {
+  margin-top: 4em;
+  font-size: 85%;
+}
+
+.footnotes hr {
+  margin-bottom: 1em;
+}
+
+.footnotes li {
+  margin: 0 0 12px;
+}
+
+twitter-widget {
+  /*
+  Have to use important here because the twitter oembed puts the styles in the
+  style attribute.
+  */
+  margin: 2em auto !important;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+a.no-underline:hover {
+  text-decoration: none;
+}
+
+a.no-underline:hover .re-underline {
+  text-decoration: underline;
+}
+
+.list-of-titles .post-title {
+  color: black;
+  font-size: 1.5em;
+}
+.list-of-titles li a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  border-bottom: 1px solid #ccc;
+  /* hacks so that the text doesn't move unintentionally */
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.list-of-titles li a:hover {
+  background-color: white;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  box-shadow: 0 5px 5px -5px #777777;
+}
+
+.list-of-titles li a:hover .post-title {
+  text-decoration: underline;
+}
+
+.list-of-titles li:first-child a {
+  border-top: 1px solid #ccc;
+}
+
+.list-of-titles .post-meta {
+  font-size: 0.875em;
+  color: #777;
+}
+
+ul.right-links {
+  display: none;
+  float: right;
+}
+ul.right-links li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+@media(min-width: 440px) {
+  ul.right-links {
+    display: block;
+  }
+}
+
+.embed.rich, img {
+  max-width: 100%;
+}
+
+p {
+  hyphens: auto;
+}
+
+.look-sheet-bkg.draft, .list-of-titles li.draft a:hover {
+  background: repeating-linear-gradient(     135deg,   white,   white 10px,   #ffd4a3 12px,   #ffd4a3 12px );
+}
+
+.list-of-titles li.draft {
+  background: repeating-linear-gradient(     135deg,    #fffdf7,   #fffdf7 10px,   #ffd4a3 12px,   #ffd4a3 12px );
+}
+
+.post-meta.draft {
+  font-weight: bold;
+}
+
+.text-1p5 {
+  font-size: 1.5em;
+}
+
+.text-0p75 {
+  font-size: 0.75em;
+}
+
+.aside {
+  background-color: #fffdf7;
+  padding: 0 1em;
+  margin-top: 3em;
+}
+
+.aside h2:first-child {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.expander {
+  background-color: #fffdf7;
+  padding: 0 1em;
+  position: relative; /* anchor for the buttons */
+}
+
+.expander h2:first-child {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.expander .button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  line-height: 1.5;
+  border-radius: .25rem;
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  padding: .25rem .75rem;
+  font-size: .875rem;
+
+  color: white;
+  box-shadow: 0 5px 5px -5px #777777;
+  background: #00223E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.expander .button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+.expander input.show:checked ~ .inner {
+  display:block;
+}
+
+.expander input.hide:checked ~ .inner {
+  display: none;
+}
+
+.expander input.show:checked ~ .button-show {
+  display: none;
+}
+
+.expander input.hide:checked ~ .button-hide {
+  display: none;
+}

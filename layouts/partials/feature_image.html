@@ -1,0 +1,15 @@
+{{/* The featured image, using the same rules as what the twitter cards use. */}}
+{{- with $.Params.images -}}
+    {{- index . 0 | absURL -}}
+{{- else -}}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+    {{- with $featured -}}
+        {{- $featured.Permalink -}}
+    {{- else -}}
+        {{- with $.Site.Params.images -}}
+            {{- index . 0 | absURL -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

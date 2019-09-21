@@ -1,0 +1,28 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{.Site.BaseURL}}/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{.Site.BaseURL}}/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{.Site.BaseURL}}/favicon-16x16.png">
+<link rel="manifest" href="{{.Site.BaseURL}}/site.webmanifest">
+<link rel="mask-icon" href="{{.Site.BaseURL}}/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+{{ with.Description }}<meta name="description" content="{{ . }}" />
+{{ end }}
+<meta name="keywords" content="{{ if .Keywords }}{{ range.Keywords }}{{ . }},
+{{ end }}{{else if isset .Params "tags" }}{{ range.Params.tags }}{{ . }},
+{{ end }}{{ end }}">
+
+{{ template "_internal/opengraph.html" . }}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+
+{{ partial "twitter_cards_default_small.html" . }}
+
+{{ template "_internal/schema.html" . }}
