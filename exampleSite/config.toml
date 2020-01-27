@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "http://example.com/"
 languageCode = "en-us"
 title = "Paperesque theme example"
 theme = "paperesque"
