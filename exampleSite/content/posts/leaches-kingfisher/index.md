@@ -7,6 +7,8 @@ tags:
 - Small birds
 ---
 
+Specimens of this fine Kingsfisher are contained in the British Museum, the Linnean Society, and my own collections, all of which were procured on the north-east coast of Australia, where it evidently replaces the Dacelo gigantea of New South Wales and South Australia.
+
 {{< figure
   src="featured-i078.jpg"
   class="smaller"
@@ -15,9 +17,11 @@ tags:
   attrlink="http://www.gutenberg.org/files/60302/60302-h/60302-h.htm"
 >}}
 
-Specimens of this fine Kingsfisher are contained in the British Museum, the Linnean Society, and my own collections, all of which were procured on the north-east coast of Australia, where it evidently replaces the Dacelo gigantea of New South Wales and South Australia.
+The specimen in the Linnean Society’s museum was presented by Dr. Brown[^1], who procured it in Keppel Bay on the east coast; and it was subsequently seen at Shoalwater Bay[^2] and Broad Sound on the same coast; my own specimens were obtained at Cape York, the north-eastern extremity of Australia.
 
-The specimen in the Linnean Society’s museum was presented by Dr. Brown, who procured it in Keppel Bay on the east coast; and it was subsequently seen at Shoalwater Bay and Broad Sound on the same coast; my own specimens were obtained at Cape York, the north-eastern extremity of Australia.
+[^1]: Here's an example of a footnote that's been converted to a margin-note on sufficiently wide screens. They align to the paragraph that they are referenced in.
+
+[^2]: If you use a lot of footnotes close together, they are still spaced nicely and retain their distance from each other.
 
 The habits, actions, food, and indeed the whole of the economy, are so precisely like those of the Dacelo gigantea that a separate description of them is entirely unnecessary.
 

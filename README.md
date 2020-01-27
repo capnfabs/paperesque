@@ -1,6 +1,6 @@
-# paperesque
+# Paperesque
 
-A lightweight Hugo theme with a couple of neat tricks.
+A lightweight [Hugo](https://gohugo.io) theme with a couple of neat tricks.
 
 You can see it in action on [capnfabs.net](https://capnfabs.net).
 

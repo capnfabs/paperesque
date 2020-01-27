@@ -1,0 +1,12 @@
+name = "Paperesque"
+license = "MIT"
+licenselink = "https://github.com/capnfabs/paperesque/blob/master/LICENSE"
+description = "A lightweight theme for personal websites."
+homepage = "https://github.com/capnfabs/paperesque/"
+tags = ["blog", "personal", "light", "responsive", "minimal"]
+features = ["responsive", "margin notes", "resource processing", "draft highlighting"]
+min_version = "0.62.0"
+
+[author]
+    name = "Fabian Tamp"
+    homepage = "https://capnfabs.net"
