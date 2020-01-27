@@ -91,7 +91,7 @@ page = ["HTML", "droplist"]
 Now, as part of your build process, run:
 
 ```sh
-./themes/paperesque/scripts/drop-resources.py [hugo-output-directory]
+./themes/paperesque/buildscripts/drop-resources.py [hugo-output-directory]
 ```
 
 (the Hugo output directory is usually `./public`).
