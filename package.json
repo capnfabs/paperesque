@@ -1,7 +1,7 @@
 {
-  "name": "capnfabs-lite",
+  "name": "paperesque",
   "version": "0.1.0",
-  "description": "capnfabs-lite Hugo theme",
+  "description": "paperesque Hugo theme",
   "main": "index.js",
   "author": "Fabian Tamp (@capnfabs)",
   "license": "MIT",

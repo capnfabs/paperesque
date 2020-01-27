@@ -1,17 +1,23 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Example Site for capnfabs-hugo-lite"
-theme = "capnfabs-lite"
+title = "Paperesque theme example"
+theme = "paperesque"
 copyright = "© 2011-2020 Fabian Tamp"
 
+# I can't remember if this is required for syntax highlighting or not.
 pygmentsUseClasses = true
 
-[outputs]
-page = ["HTML", "droplist"]
+# Uncomment these lines for droplist / resource removal support! See the
+# README for more details
+
+# [outputs]
+# page = ["HTML", "droplist"]
 
 [params]
 # Turn this on if you want to disable margin notes everywhere!
 # disableMarginNotes = true
+
+# Customise your home page menu here:
 
 [[params.menu]]
   name = "Recent Posts"
@@ -27,7 +33,10 @@ page = ["HTML", "droplist"]
 
 [[params.menu]]
   name = "Link to theme on Github"
-  url = "https://github.com/capnfabs/hugo-theme-lite"
+  url = "https://github.com/capnfabs/paperesque"
+
+
+# And your top-right menu links here.
 
 [[params.topmenu]]
   name = "my favourite bird"
