@@ -5,6 +5,3 @@
 [outputFormats.droplist]
 mediatype = "text/droplist"
 isPlainText = true
-
-[outputs]
-page = ["HTML", "droplist"]

@@ -17,7 +17,7 @@
     </nav>
   </div>
 
-  <section id="main" class="content-container look-sheet article-pad-v">
+  <section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>
     <article itemprop="articleBody" id="content" class="article-body">
       {{ .Content }}

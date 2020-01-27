@@ -1,12 +1,155 @@
 # capnfabs-lite
 
-The theme in use on capnfabs.net.
+A lightweight Hugo theme with a couple of neat tricks.
 
-This _probably_ isn't ready for drop-in production use (hence why it hasn't been published on the Hugo themes site), but it's got a couple of interesting ideas that I wanted to make available for other people to borrow.
+You can see it in action on [capnfabs.net](https://capnfabs.net).
 
-Those features are:
+Here's what makes it special:
 
-- A mechanism for excluding source images after they've been processed or resized, and
-- Visual differentiation for drafts.
+- Has a shortcode for resizing images to fit the page, _and_ tools for removing originals from the output
+- Visual differentiation for drafts
+- Footnotes turn into margin notes when there's enough space.
 
-The explanation for how it all works is in [this blog post](https://capnfabs.net/posts/hugo-theme-exclude-processed-images/), so take a look there for the comprehensive explanation, and what you need to do to integrate these ideas into your own themes.
+## Install
+
+
+### git subtree (easiest!)
+
+Copy the files into your repo using `git subtree` (this is way easier to use than submodules; [here's an explainer](https://www.atlassian.com/git/tutorials/git-subtree)):
+
+```sh
+git subtree add --prefix themes/capnfabs-lite https://github.com/capnfabs/hugo-theme-lite master --squash
+```
+
+This will add a commit to your repo with everything ready to go. You'll probably want to modify parts of this theme for your own usage! Subtree makes that easy, because you've just copied the code into your repo ✨
+
+### git submodules
+
+If you're sure you want to use git submodules:
+
+```sh
+git submodule add --init https://github.com/capnfabs/hugo-theme-lite themes/capnfabs-lite
+```
+
+
+## Using Features
+
+### FYI: the Home Page is Menu-driven
+
+When you first install and switch to the theme, you might find that your homepage is blank. That's because all the links on the homepage are specified in your `config.toml`. Set it up like this:
+
+```toml
+[[params.menu]]
+  name = "blog"
+  url = "posts/"
+
+[[params.menu]]
+  name = "tags"
+  url = "tags/"
+
+[[params.menu]]
+  name = "about"
+  url = "about/"
+
+[[params.menu]]
+  name = "contact"
+  url = "contact/"
+```
+
+### Links in the top-right corner
+
+These are also config driven! Add this to your `config.toml` (for example):
+
+```toml
+[[params.topmenu]]
+  name = "about"
+  url = "about/"
+
+[[params.topmenu]]
+  name = "contact"
+  url = "contact/"
+
+[[params.topmenu]]
+  name = "rss"
+  url = "posts/index.xml"
+```
+
+### Removing original images after resizing
+
+The `fitfigure` shortcode is exactly the same as the `figure` shortcode, but it automatically resizes your images to fit the container, _and_ provides different resolutions for different DPIs (1x, 2x).
+
+Whenever you use this shortcode, the theme makes a mental note of the resource you specified.
+
+Now, you need to do some configuration if you want the originals to be removed from the output.
+
+First, add this to your site's `config.toml`:
+
+```toml
+[outputs]
+page = ["HTML", "droplist"]
+```
+
+Now, as part of your build process, run:
+
+```sh
+./themes/capnfabs-lite/scripts/drop-resources.py [hugo-output-directory]
+```
+
+(the Hugo output directory is usually `./public`).
+
+That's it! Resized resources will be removed.
+
+This is _off by default_ because it peppers your build output with `.droplist` files, and if you're not expecting them, it's going to be an unpleasant surprise.
+
+### Visual differentiation for drafts
+
+This one's on, and can't be switched off. Drafts have an orange stripey background everywhere. You can't miss them.
+
+### Footnotes turn into margin notes
+
+This is _on by default_.
+
+You can switch it off site-wide by adding `disableMarginNotes = true` to your `params` in your `config.toml`, i.e.
+
+```toml
+[params]
+disableMarginNotes = true
+```
+
+Alternatively, you can turn it off per-page by adding the `disableMarginNotes = true` to your front-matter for the page.
+
+## Hacking / Modifying the theme
+
+The javascript in use (`static/js/main.js`) is built from the `./js/` directory. Here are instructions for how to modify the JS:
+
+### Set up
+First, you need to [install the `yarn` package manager](https://yarnpkg.com/getting-started/install).
+
+Then, run:
+
+```sh
+yarn install
+```
+
+to install the required dependencies.
+
+### Dev builds
+
+Run:
+
+```sh
+parcel watch --out-dir static/js js/main.js
+```
+
+Simple as that!
+
+### Production builds (i.e. before you commit code / deploy code)
+
+```sh
+parcel build --no-source-maps --experimental-scope-hoisting --out-dir static/js js/main.js
+```
+
+_Experimental Scope Hoisting_ inlines Parcel's module loader. It shaves off like 2kB Gzipped. Laugh all you want, but that's half a second at dial-up speeds 😉
+
+### Other resources
+The explanation for how a lot of this works is in [this blog post](https://capnfabs.net/posts/hugo-theme-exclude-processed-images/), so take a look there if you get stuck or want to borrow some of the ideas without grabbing all of them.
