@@ -18,6 +18,12 @@
               <span class="post-title">{{ .Title }}</span>
               <br>
               <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+              <br>
+              <span class="post-meta">
+                {{ range .Params.tags }}
+                  #{{ . }}&nbsp;
+                {{ end }}
+              </span>
             </a>
           </li>
         {{ end }}

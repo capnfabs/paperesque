@@ -71,6 +71,11 @@ body {
 }
 
 @media(min-width: 720px) {
+  /* Make everything 10% smaller! */
+  html {
+    font-size: 14.4px;
+  }
+
   .content-container {
     /* ACHTUNG:
     Images are scaled in the fitfigure shortcode with an assumption that the
@@ -108,13 +113,16 @@ body {
   }
 }
 
-.look-sheet-always {
+figure.smaller {
+  max-width: 67%;
+}
+
+.look-sheet-border {
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
   margin-top: 1em;
   margin-bottom: 1em;
   min-height: 0px;
-  background-color: white;
 }
 
 .article-pad-v {
@@ -193,6 +201,14 @@ figure:not(.no-border) video, figure:not(.no-border) img {
   box-shadow: 0 5px 5px -5px #777777;
   max-width: 100%;
   background-color: white;
+  max-height: 85vh;
+}
+
+hr {
+  padding: 0;
+  border: none;
+  border-top: 1px solid #AAA;
+  margin: 2.5em 3em;
 }
 
 body {
@@ -333,15 +349,26 @@ p {
   font-size: 0.75em;
 }
 
-.aside {
+aside.article-aside {
   background-color: #fffdf7;
   padding: 0 1em;
   margin-top: 3em;
 }
 
-.aside h2:first-child {
+/*
+TODO: understand CSS so I don't need to do this insane thing. The idea here is
+that if an `aside` appears immediately after a heading, it should have close
+spacing, but if it appears after other content it should have sufficient spacing
+to make it look like a new section. I think we should theoretically be able to
+do that with margins, but I don't understand how they work enough yet.
+*/
+h2+aside.article-aside, h3+aside.article-aside, h4+aside.article-aside, h5+aside.article-aside {
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
+}
+
+/* If we've nested this inside something, we probably don't want to have the huge margin */
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0.5em;
 }
 
 .expander {
@@ -404,4 +431,78 @@ p {
 
 .expander input.hide:checked ~ .button-hide {
   display: none;
+}
+
+/*
+This cursed incantation works around a display bug in Firefox, where writing
+an emoji with default Emoji Presentation (e.g. 🐻) followed by a non-default
+emoji character (e.g. ↩) results in the latter being rendered with emoji
+presentation as well.
+
+This is only a problem on the newer Goldmark renderer, which I'm not using yet.
+*/
+a.footnote-backref::before {
+  content: ' ';
+}
+
+
+/* all this stuff is for header links */
+
+.header-link {
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, white 20%);
+  color: grey;
+  fill: grey;
+}
+
+aside .header-link {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #fffdf7 20%);
+}
+
+.header-link:hover {
+  text-decoration: none;
+}
+
+/* Keep the selectors here in sync with site.js  */
+h2, h3, h4 {
+  position: relative;
+}
+
+h2:not(:hover) .header-link, h3:not(:hover) .header-link, h4:not(:hover) .header-link {
+  display: none;
+}
+
+.header-link svg {
+  height: 0.65em;
+  margin-bottom: 0.225em;
+  /* make these links easier to tap */
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+}
+
+/* end header links */
+
+/* this goes on the parent */
+#content {
+  position: relative;
+}
+
+.floating-footnotes {
+  width: 25em;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  /* The entire main article content, + the margins */
+  left: calc(100% + 2em);
+}
+
+.floating-footnotes hr {
+  display: none;
+}
+
+.floating-footnotes li[role=doc-endnote] p:last-child {
+  margin-bottom: 0;
 }

@@ -17,15 +17,14 @@
       {{ partial "right-links" . }}
     </nav>
   </div>
-
-  <section id="main" class="content-container look-sheet article-pad-v" itemprop="mainEntityOfPage">
+  <section id="main" class="content-container look-sheet article-pad-v {{ if .Params.disableFloatingFootnotes }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>
     <meta itemprop="headline" content="{{ .Title }}" />
     {{ if .Params.tags }}
     <div class="post-tags">
     {{ range .Params.tags }}
       <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">#{{ . }}</a>&nbsp;
-      {{ end }}
+    {{ end }}
     </div>
     {{ end }}
     {{ if eq .Lastmod .Date }}
@@ -34,6 +33,9 @@
     {{ else }}
       <div class="post-date">Created: <span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
       <div class="post-date">Last Edited: <span itemprop="dateModified">{{ .Lastmod.Format "January 2, 2006" }}</span></div>
+    {{ end }}
+    {{ if .Draft }}
+      <div class="post-date">{{ .WordCount }} words</div>
     {{ end }}
     <article itemprop="articleBody" id="content" class="article-body margin-top-2em">
       {{ .Content }}
@@ -51,11 +53,15 @@
     <a href="{{.PrevInSection.Permalink}}" class="flex-row v-center no-underline"  style="max-width:45%;">
       <span class="text-1p5">←</span>&nbsp;<span class="re-underline">Previous: {{ .PrevInSection.Title }}</span>
     </a>
+    {{else}}
+      <span class="flex-row v-center"></span>
     {{end}}
     {{if .NextInSection}}
       <a href="{{.NextInSection.Permalink}}" class="flex-row v-center no-underline" style="max-width: 45%;">
       <span class="re-underline">Next: {{.NextInSection.Title}}</span>&nbsp;<span class="text-1p5">→</span>
       </a>
+    {{else}}
+      <span class="flex-row v-center"></span>
     {{end}}
     </nav>
   </div>
