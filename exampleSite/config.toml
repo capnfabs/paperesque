@@ -1,0 +1,38 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Example Site for capnfabs-hugo-lite"
+theme = "capnfabs-lite"
+copyright = "© 2011-2020 Fabian Tamp"
+
+pygmentsUseClasses = true
+
+[outputs]
+page = ["HTML", "droplist"]
+
+[params]
+# Turn this on if you want to disable margin notes everywhere!
+# disableMarginNotes = true
+
+[[params.menu]]
+  name = "Recent Posts"
+  url = "posts/"
+
+[[params.menu]]
+  name = "Posts by Tag"
+  url = "tags/"
+
+[[params.menu]]
+  name = "About the contents of this example site"
+  url = "about/"
+
+[[params.menu]]
+  name = "Link to theme on Github"
+  url = "https://github.com/capnfabs/hugo-theme-lite"
+
+[[params.topmenu]]
+  name = "my favourite bird"
+  url = "posts/kookaburra"
+
+[[params.topmenu]]
+  name = "rss"
+  url = "posts/index.xml"
