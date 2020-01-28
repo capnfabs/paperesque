@@ -8,6 +8,15 @@ copyright = "© 2011-2020 Fabian Tamp"
 # Hugo Themes; you almost certainly don't want this on your production site
 buildDrafts = true
 
+[markup]
+  # This is the default from Hugo 0.60.0 onwards, but we're setting config
+  # for it below, so make it explicit
+  defaultMarkdownHandler = "goldmark"
+
+# Required to render HTML tags in the hugoExampleSite examples.
+[markup.goldmark.renderer]
+  unsafe = true
+
 # I can't remember if this is required for syntax highlighting or not.
 pygmentsUseClasses = true
 
@@ -32,8 +41,12 @@ pygmentsUseClasses = true
   url = "tags/"
 
 [[params.menu]]
-  name = "About the contents of this example site"
+  name = "About the contents of this example"
   url = "about/"
+
+[[params.menu]]
+  name = "Hugo Themes default example pages"
+  url = "tags/hugobasicsite/"
 
 [[params.menu]]
   name = "Link to theme on Github"
