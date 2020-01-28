@@ -4,6 +4,10 @@ title = "Paperesque theme example"
 theme = "paperesque"
 copyright = "© 2011-2020 Fabian Tamp"
 
+# We're building drafts in config so that you can see them in the example on
+# Hugo Themes; you almost certainly don't want this on your production site
+buildDrafts = true
+
 # I can't remember if this is required for syntax highlighting or not.
 pygmentsUseClasses = true
 
@@ -40,7 +44,7 @@ pygmentsUseClasses = true
 
 [[params.topmenu]]
   name = "my favourite bird"
-  url = "posts/kookaburra"
+  url = "posts/kookaburra/"
 
 [[params.topmenu]]
   name = "rss"
