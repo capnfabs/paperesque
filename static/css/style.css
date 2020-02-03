@@ -9,6 +9,9 @@ code {
   font-size: 90%;
   background-color: #eeeeee;
   hyphens: none; /* reset changes from <p> */
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  word-wrap: break-word;
   /* border-radius: 4px; */
 }
 
@@ -23,7 +26,6 @@ pre {
   padding: 9.5px;
   margin: 0 0 10px;
   line-height: 1.4;
-  word-break: break-all;
   word-wrap: break-word;
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
@@ -327,6 +329,8 @@ ul.right-links li {
 
 p {
   hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 .look-sheet-bkg.draft, .list-of-titles li.draft a:hover {
