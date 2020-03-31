@@ -359,6 +359,27 @@ aside.article-aside {
   margin-top: 3em;
 }
 
+aside.article-aside > p:first-child {
+  margin-top: 1rem;
+}
+
+aside.content-warning {
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: #777;
+  border-top: solid 1px #777;
+  border-bottom: solid 1px #777;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  display: inline-block;
+}
+
+aside.content-warning > p:last-child {
+  margin-bottom: 0;
+}
+
 /*
 TODO: understand CSS so I don't need to do this insane thing. The idea here is
 that if an `aside` appears immediately after a heading, it should have close
