@@ -9,7 +9,7 @@
 
     {{ partial "meta.html" . }}
 
-    <title>{{ .Title }}</title>
+    <title>{{ .Title }}{{ if ne $.Site.Title .Title }} || {{ $.Site.Title }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
 
     {{ with .Site.Params.RSSCanonicalLink }}
