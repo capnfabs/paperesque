@@ -2,8 +2,8 @@
 {{- $original := .Page.Resources.GetMatch $path -}}
 {{- if not $original -}}
     {{- errorf "couldn't find resource for src: %s" $path -}}
-{{- else if and ((ne "jpeg" $original.MediaType.SubType) (ne "png" $original.MediaType.SubType)) -}}
-    {{- errorf "src %s is a %s, expected image/jpg or image/png" $path $original.MediaType -}}
+{{- else if and (ne "jpeg" $original.MediaType.SubType) (ne "png" $original.MediaType.SubType) -}}
+    {{- errorf "src %s is a '%s', expected 'jpeg' or 'png'" $path $original.MediaType.SubType -}}
 {{- else -}}
     {{- /* Below is a copy paste of https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag modified to use srcsets */ -}}
     {{- /* Note that it presently uses `markdownify` instead of $.Page.RenderString for consistency with Hugo's `figure` shortcode.  */ -}}
