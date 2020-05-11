@@ -198,7 +198,7 @@ figure {
   display: table;
 }
 
-figure:not(.no-border) video, figure:not(.no-border) img {
+figure:not(.no-border) video, figure:not(.no-border) img, figure:not(.no-border) object {
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
   max-width: 100%;
