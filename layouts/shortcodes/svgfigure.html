@@ -1,0 +1,33 @@
+{{- /* This is a copy paste of
+    https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html
+    from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag
+    replaced with an object tag, with type=svg. This allows for embedded SVGs to
+    be animated with CSS in Safari 13.1. See also: https://stackoverflow.com/q/60975613/996592
+*/ -}}
+{{- /* Note that it presently uses `markdownify` instead of $.Page.RenderString for consistency with Hugo's `figure` shortcode.  */ -}}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{- if .Get "link" -}}
+        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- end }}
+    <object type="image/svg+xml" data="{{ .Get "src" }}"
+         {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+    ></object>
+    {{- if .Get "link" }}</a>{{ end -}}
+    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+        <figcaption>
+            {{ with (.Get "title") -}}
+                <h4>{{ . }}</h4>
+            {{- end -}}
+            {{- if or (.Get "caption") (.Get "attr") -}}<p>
+                {{- .Get "caption" | markdownify -}}
+                {{- with .Get "attrlink" }}
+                    <a href="{{ . }}">
+                {{- end -}}
+                {{- .Get "attr" | markdownify -}}
+                {{- if .Get "attrlink" }}</a>{{ end }}</p>
+            {{- end }}
+        </figcaption>
+    {{- end }}
+</figure>
