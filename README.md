@@ -31,6 +31,14 @@ If you're sure you want to use git submodules:
 git submodule add --init https://github.com/capnfabs/paperesque themes/paperesque
 ```
 
+### Select the theme in your `config.toml`
+
+Add / Modify the `theme` field in your `config.toml` for your hugo site:
+
+```toml
+theme = "paperesque"
+```
+
 ## Using Features
 
 ### FYI: the Home Page is Menu-driven
