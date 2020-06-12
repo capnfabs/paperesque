@@ -1,3 +1,4 @@
 .cache/
 node_modules
 *.js.map
+.DS_Store

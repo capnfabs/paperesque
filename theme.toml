@@ -1,6 +1,6 @@
 name = "Paperesque"
 license = "MIT"
-licenselink = "https://github.com/capnfabs/paperesque/blob/master/LICENSE.md"
+licenselink = "https://github.com/capnfabs/paperesque/blob/mainline/LICENSE.md"
 description = "A lightweight theme for personal websites."
 homepage = "https://github.com/capnfabs/paperesque/"
 tags = ["blog", "personal", "light", "responsive", "minimal"]

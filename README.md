@@ -18,7 +18,7 @@ Here's what makes it special:
 Copy the files into your repo using `git subtree` (this is way easier to use than submodules; [here's an explainer](https://www.atlassian.com/git/tutorials/git-subtree)):
 
 ```sh
-git subtree add --prefix themes/paperesque https://github.com/capnfabs/paperesque master --squash
+git subtree add --prefix themes/paperesque https://github.com/capnfabs/paperesque mainline --squash
 ```
 
 This will add a commit to your repo with everything ready to go. You'll probably want to modify parts of this theme for your own usage! Subtree makes that easy, because you've just copied the code into your repo ✨
@@ -28,7 +28,7 @@ This will add a commit to your repo with everything ready to go. You'll probably
 If you're sure you want to use git submodules:
 
 ```sh
-git submodule add --init https://github.com/capnfabs/paperesque themes/paperesque
+git submodule add -b mainline https://github.com/capnfabs/paperesque themes/paperesque
 ```
 
 ### Select the theme in your `config.toml`
