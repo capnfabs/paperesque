@@ -2,7 +2,7 @@
 
 A lightweight [Hugo](https://gohugo.io) theme with a couple of neat tricks.
 
-You can see it in action on [capnfabs.net](https://capnfabs.net).
+You can see it in action on [capnfabs.net](https://capnfabs.net), or on the [Hugo Themes Example Site](https://themes.gohugo.io/theme/paperesque/).
 
 Here's what makes it special:
 
@@ -159,4 +159,6 @@ parcel build --no-source-maps --experimental-scope-hoisting --out-dir static/js 
 _Experimental Scope Hoisting_ inlines Parcel's module loader. It shaves off like 2kB Gzipped. Laugh all you want, but that's half a second at dial-up speeds 😉
 
 ### Other resources
-The explanation for how a lot of this works is in [this blog post](https://capnfabs.net/posts/hugo-theme-exclude-processed-images/), so take a look there if you get stuck or want to borrow some of the ideas without grabbing all of them.
+
+- The explanation for how a lot of this works is in [this blog post](https://capnfabs.net/posts/hugo-theme-exclude-processed-images/), so take a look there if you get stuck or want to borrow some of the ideas without grabbing all of them.
+- You can see who else is using this theme by [searching Github for `paperesque filename:config.toml`](https://github.com/search?q=paperesque+filename%3Aconfig.toml&type=Code) (requires login).
