@@ -41,7 +41,7 @@ theme = "paperesque"
 
 ## Using Features
 
-### FYI: the Home Page is Menu-driven
+### FYI: the Home Page is Config-driven
 
 When you first install and switch to the theme, you might find that your homepage is blank. That's because all the links on the homepage are specified in your `config.toml`. Set it up like this:
 
@@ -125,38 +125,34 @@ disableMarginNotes = true
 
 Alternatively, you can turn it off per-page by adding the `disableMarginNotes = true` to your front-matter for the page.
 
-## Hacking / Modifying the theme
+## Testing against the example site
 
-The javascript in use (`static/js/main.js`) is built from the `./js/` directory. Here are instructions for how to modify the JS:
+You can build the example site with this theme with:
 
-### Set up
-First, you need to [install the `yarn` package manager](https://yarnpkg.com/getting-started/install).
+```
+cd exampleSite
+hugo serve --themesDir=../..
+```
 
-Then, run:
+## Hacking / Modifying the JS
+
+The javascript is built from the `./assets/js/` directory using [Hugo Pipes JS Build functionality](https://gohugo.io/hugo-pipes/js/). This means you should be able to just modify the JS in the theme and expect your changes to be reflected, using the same workflow as you'd use for anything else in your Hugo site.
+
+Note that this is only available since Hugo 0.74.0; if you're stuck on an old version of Hugo, try grabbing this theme at commit dfcf8b8e802e500e883c4f291b34d65d2e65a7bf instead, which uses a different bundling mechanism.
+
+### Dependencies
+
+Note that dependencies are checked into version control, so unless you're adding new ones / upgrading existing packages you should be fine.
+
+To install / update dependencies, you need to [install the `yarn` package manager](https://yarnpkg.com/getting-started/install) (you might need to install [NPM / NodeJS](https://www.npmjs.com/get-npm) too!).
+
+Then, run as required:
 
 ```sh
 yarn install
+yarn add [package]
+yarn upgrade [package]
 ```
-
-to install the required dependencies.
-
-### Dev builds
-
-Run:
-
-```sh
-parcel watch --out-dir static/js js/main.js
-```
-
-Simple as that!
-
-### Production builds (i.e. before you commit code / deploy code)
-
-```sh
-parcel build --no-source-maps --experimental-scope-hoisting --out-dir static/js js/main.js
-```
-
-_Experimental Scope Hoisting_ inlines Parcel's module loader. It shaves off like 2kB Gzipped. Laugh all you want, but that's half a second at dial-up speeds 😉
 
 ### Other resources
 
