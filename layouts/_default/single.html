@@ -21,7 +21,7 @@ and you can test on the android-development-developer-productivity article.
 
 Would also be cool to make this fold on mobile so there's two links on separate lines.
 -->
-  {{if (or .PrevInSection .NextInSection) }}
+  {{if (and (not .Parent.IsHome) (or .PrevInSection .NextInSection)) }}
     <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75">
       <nav class="flex-row">
       {{if .PrevInSection}}
