@@ -16,7 +16,7 @@ function anchorizeHeadings() {
     // messed something up if this is the case, but I don't have enough
     // confidence in the way I've set everything up to _not_ do this safety
     // check.
-    const articles = document.querySelectorAll('section#main article');
+    const articles = document.querySelectorAll('article#main');
     if (articles.length != 1) {
         return;
     }

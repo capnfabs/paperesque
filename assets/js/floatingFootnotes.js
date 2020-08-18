@@ -1,7 +1,7 @@
 import { docReady, onWindowResize } from "./utils.js";
 import { ResizeObserver } from '@juggle/resize-observer';
 
-const ARTICLE_CONTENT_SELECTOR = "section#main";
+const ARTICLE_CONTENT_SELECTOR = "article#main";
 const FOOTNOTE_SECTION_SELECTOR = "section.footnotes[role=doc-endnotes]";
 const FLOATING_FOOTNOTE_MIN_WIDTH = 1260;
 
