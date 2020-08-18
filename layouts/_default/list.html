@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-<body
-  lang="{{ .Site.LanguageCode }}" >
+{{ define "content" }}
   <div class="nav-bkg">
     <nav class="content-container pagewide-bar-padding">
       <span class="divider">/ </span>
@@ -30,7 +28,4 @@
       </ul>
     </div>
   </section>
-
-  {{ partial "footer.html" . }}
-  </body>
-</html>
+{{ end }}

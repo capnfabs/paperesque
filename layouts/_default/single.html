@@ -1,40 +1,35 @@
-{{ partial "header.html" . }}
-<body
-  class="{{ if .Draft }}draft{{ end }} look-sheet-bkg"
-  lang="{{ .Site.LanguageCode }}"
-  itemscope
-  itemtype="http://schema.org/Article">
+{{ define "body-classes" -}}
+look-sheet-bkg
+{{- end }}
+{{ define "content" }}
+<div class="nav-bkg">
+  <nav class="content-container pagewide-bar-padding">
+    <span class="divider">/ </span>
+    <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
+    {{- if not .Parent.IsHome -}}
+    <span class="divider">/ </span>
+    <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
+    {{- end -}}
+    {{ partial "right-links" . }}
+  </nav>
+</div>
 
-  <div class="nav-bkg">
-    <nav class="content-container pagewide-bar-padding">
-      <span class="divider">/ </span>
-      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-      {{- if not .Parent.IsHome -}}
-      <span class="divider">/ </span>
-      <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
-      {{- end -}}
-      {{ partial "right-links" . }}
-    </nav>
-  </div>
-
-  <section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
-    <h1 itemprop="name" id="title">{{ .Title }}</h1>
-    {{ if .Date }}
-      {{ if eq .Lastmod .Date }}
-        <div class="post-date"><span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
-        <meta itemprop="dateModified" content="{{ .Lastmod.Format "January 2, 2006" }}"/>
-      {{ else }}
-        <div class="post-date">Created: <span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
-        <div class="post-date">Last Edited: <span itemprop="dateModified">{{ .Lastmod.Format "January 2, 2006" }}</span></div>
-      {{ end }}
+<section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
+  <h1 itemprop="name" id="title">{{ .Title }}</h1>
+  {{ if .Date }}
+    {{ if eq .Lastmod .Date }}
+      <div class="post-date"><span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
+      <meta itemprop="dateModified" content="{{ .Lastmod.Format "January 2, 2006" }}"/>
+    {{ else }}
+      <div class="post-date">Created: <span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
+      <div class="post-date">Last Edited: <span itemprop="dateModified">{{ .Lastmod.Format "January 2, 2006" }}</span></div>
     {{ end }}
-    {{ if .Draft }}
-      <div class="post-date">{{ .WordCount }} words</div>
-    {{ end }}
-    <article itemprop="articleBody" id="content" class="article-body margin-top-2em">
-      {{ .Content }}
-    </article>
-  </section>
-  {{ partial "footer.html" . }}
-  </body>
-</html>
+  {{ end }}
+  {{ if .Draft }}
+    <div class="post-date">{{ .WordCount }} words</div>
+  {{ end }}
+  <article itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    {{ .Content }}
+  </article>
+</section>
+{{ end }}
