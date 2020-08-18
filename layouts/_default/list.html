@@ -1,24 +1,24 @@
 {{ define "content" }}
-  <section id="main" class="content-container article-pad-v">
-    <div>
-      <h1 id="title" style="margin-bottom: 0.75em">{{.CurrentSection.Name}}</h1>
-      <ul id="list" class="list-unstyled list-of-titles">
-        {{ range .Data.Pages.ByDate.Reverse }}
-          <li class="{{if .Draft }}draft{{ end }}">
-            <a href="{{ .RelPermalink}}">
-              <span class="post-title">{{ .Title }}</span>
-              <br>
-              <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
-              <br>
-              <span class="post-meta">
-                {{ range .Params.tags }}
-                  #{{ . }}&nbsp;
-                {{ end }}
-              </span>
-            </a>
-          </li>
-        {{ end }}
-      </ul>
-    </div>
-  </section>
+<section id="main" class="content-container article-pad-v">
+  <div>
+    <h1 id="title" style="margin-bottom: 0.75em">{{.Title}}</h1>
+    <ul id="list" class="list-unstyled list-of-titles">
+      {{ range .Data.Pages.ByDate.Reverse }}
+        <li class="{{if .Draft }}draft{{ end }}">
+          <a href="{{ .RelPermalink}}">
+            <span class="post-title">{{ .Title }}</span>
+            <br>
+            <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+            <br>
+            <span class="post-meta">
+              {{ range .Params.tags }}
+                #{{ . }}&nbsp;
+              {{ end }}
+            </span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
 {{ end }}
