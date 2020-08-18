@@ -1,6 +1,7 @@
 {{ define "body-classes" -}}
-look-sheet-bkg
+  {{ if .Draft }}draft{{ end }} look-sheet-bkg
 {{- end }}
+
 {{ define "breadcrumbs" }}
   {{- if not .Parent.IsHome -}}
   <span class="divider">/ </span>
@@ -9,22 +10,35 @@ look-sheet-bkg
 {{ end }}
 
 {{ define "content" }}
-<section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
-  <h1 itemprop="name" id="title">{{ .Title }}</h1>
-  {{ if .Date }}
-    {{ if eq .Lastmod .Date }}
-      <div class="post-date"><span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
-      <meta itemprop="dateModified" content="{{ .Lastmod.Format "January 2, 2006" }}"/>
-    {{ else }}
-      <div class="post-date">Created: <span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
-      <div class="post-date">Last Edited: <span itemprop="dateModified">{{ .Lastmod.Format "January 2, 2006" }}</span></div>
-    {{ end }}
+{{- partial "single-article" . -}}
+{{ end }}
+
+{{ define "footer" }}
+
+<!-- TODO: right now, this gets weird when there's a big title on the right.
+There might be better info here: https://stackoverflow.com/questions/34995740/css-when-inline-block-elements-line-break-parent-wrapper-does-not-fit-new-width
+and you can test on the android-development-developer-productivity article.
+
+Would also be cool to make this fold on mobile so there's two links on separate lines.
+-->
+  {{if (or .PrevInSection .NextInSection) }}
+    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75">
+      <nav class="flex-row">
+      {{if .PrevInSection}}
+      <a href="{{.PrevInSection.Permalink}}" class="flex-row v-center no-underline"  style="max-width:45%;">
+        <span class="text-1p5">←</span>&nbsp;<span class="re-underline">Previous: {{ .PrevInSection.Title }}</span>
+      </a>
+      {{else}}
+        <span class="flex-row v-center"></span>
+      {{end}}
+      {{if .NextInSection}}
+        <a href="{{.NextInSection.Permalink}}" class="flex-row v-center no-underline" style="max-width: 45%;">
+        <span class="re-underline">Next: {{.NextInSection.Title}}</span>&nbsp;<span class="text-1p5">→</span>
+        </a>
+      {{else}}
+        <span class="flex-row v-center"></span>
+      {{end}}
+      </nav>
+    </div>
   {{ end }}
-  {{ if .Draft }}
-    <div class="post-date">{{ .WordCount }} words</div>
-  {{ end }}
-  <article itemprop="articleBody" id="content" class="article-body margin-top-2em">
-    {{ .Content }}
-  </article>
-</section>
 {{ end }}

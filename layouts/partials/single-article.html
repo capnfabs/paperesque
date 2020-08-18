@@ -1,0 +1,33 @@
+<article
+    id="main"
+    class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}"
+    itemscope
+    itemtype="https://schema.org/Article" >
+  <meta itemprop="author" content="{{ .Site.Params.Author }}" />
+  <meta itemprop="publisher" content="{{ .Site.Params.Author }}" />
+  <meta itemprop="image" content="{{ partial "feature_image" . }}" />
+  <h1 itemprop="name" id="title">{{ .Title }}</h1>
+  <meta itemprop="headline" content="{{ .Title }}" />
+  {{ with .Params.tags }}
+  <div class="post-tags">
+  {{ range . }}
+    <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">#{{ . }}</a>&nbsp;
+  {{ end }}
+  </div>
+  {{ end }}
+  {{ if .Date }}
+    {{ if eq .Lastmod .Date }}
+      <div class="post-date"><span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
+      <meta itemprop="dateModified" content="{{ .Lastmod.Format "January 2, 2006" }}"/>
+    {{ else }}
+      <div class="post-date">Created: <span itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</span></div>
+      <div class="post-date">Last Edited: <span itemprop="dateModified">{{ .Lastmod.Format "January 2, 2006" }}</span></div>
+    {{ end }}
+  {{ end }}
+  {{ if .Draft }}
+    <div class="post-date">{{ .WordCount }} words</div>
+  {{ end }}
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
+    {{ .Content }}
+  </div>
+</article>
