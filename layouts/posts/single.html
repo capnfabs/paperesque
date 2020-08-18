@@ -1,11 +1,8 @@
-{{ define "body-classes" }}
+{{ define "body-classes" -}}
   {{ if .Draft }}draft{{ end }} look-sheet-bkg
-{{ end }}
+{{- end }}
 
 {{ define "content" }}
-<meta itemprop="author" content="{{ .Site.Params.Author }}" />
-<meta itemprop="publisher" content="{{ .Site.Params.Author }}" />
-<meta itemprop="image" content="{{ partial "feature_image" . }}" />
 
 <div class="nav-bkg">
   <nav class="content-container pagewide-bar-padding">
@@ -16,7 +13,14 @@
     {{ partial "right-links" . }}
   </nav>
 </div>
-<section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
+<article
+    id="main"
+    class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}"
+    itemscope
+    itemtype="https://schema.org/Article" >
+  <meta itemprop="author" content="{{ .Site.Params.Author }}" />
+  <meta itemprop="publisher" content="{{ .Site.Params.Author }}" />
+  <meta itemprop="image" content="{{ partial "feature_image" . }}" />
   <h1 itemprop="name" id="title">{{ .Title }}</h1>
   <meta itemprop="headline" content="{{ .Title }}" />
   {{ if .Params.tags }}
@@ -36,10 +40,10 @@
   {{ if .Draft }}
     <div class="post-date">{{ .WordCount }} words</div>
   {{ end }}
-  <article itemprop="articleBody" id="content" class="article-body margin-top-2em">
+  <div itemprop="articleBody" id="content" class="article-body margin-top-2em">
     {{ .Content }}
-  </article>
-</section>
+  </div>
+</article>
 <!-- TODO: right now, this gets weird when there's a big title on the right.
 There might be better info here: https://stackoverflow.com/questions/34995740/css-when-inline-block-elements-line-break-parent-wrapper-does-not-fit-new-width
 and you can test on the android-development-developer-productivity article.
