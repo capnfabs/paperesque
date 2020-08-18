@@ -2,17 +2,13 @@
   {{ if .Draft }}draft{{ end }} look-sheet-bkg
 {{- end }}
 
+{{ define "breadcrumbs" }}
+  <span class="divider">/ </span>
+  <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
+{{ end }}
+
 {{ define "content" }}
 
-<div class="nav-bkg">
-  <nav class="content-container pagewide-bar-padding">
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
-    {{ partial "right-links" . }}
-  </nav>
-</div>
 <article
     id="main"
     class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}"

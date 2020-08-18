@@ -1,14 +1,9 @@
-{{ define "content" }}
-<div class="nav-bkg">
-  <nav class="content-container pagewide-bar-padding">
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}{{ .Data.Plural }}">{{.Data.Plural}}</a>
-    {{ partial "right-links" . }}
-  </nav>
-</div>
+{{ define "breadcrumbs" }}
+  <span class="divider">/ </span>
+  <a href="{{ .Site.BaseURL  }}{{ .Data.Plural }}">{{.Data.Plural}}</a>
+{{ end }}
 
+{{ define "content" }}
 <section id="main" class="content-container article-pad-v">
   <div>
     <h1 id="title" style="margin-bottom: 0.75em">{{.Data.Term}}</h1>

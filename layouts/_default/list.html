@@ -1,11 +1,4 @@
 {{ define "content" }}
-  <div class="nav-bkg">
-    <nav class="content-container pagewide-bar-padding">
-      <span class="divider">/ </span>
-      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-      {{ partial "right-links" . }}
-    </nav>
-  </div>
   <section id="main" class="content-container article-pad-v">
     <div>
       <h1 id="title" style="margin-bottom: 0.75em">{{.CurrentSection.Name}}</h1>

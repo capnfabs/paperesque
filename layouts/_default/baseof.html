@@ -26,6 +26,14 @@
   <body
   class="{{ block "body-classes" . }}{{ end }}"
   lang="{{ .Site.LanguageCode }}">
+  <div class="nav-bkg">
+    <nav class="content-container pagewide-bar-padding">
+      <span class="divider">/ </span>
+      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
+      {{ block "breadcrumbs" . }}{{ end }}
+      {{ partial "right-links" . }}
+    </nav>
+  </div>
   {{ block "content" . }}{{ end }}
   {{ partial "footer.html" . }}
   </body>

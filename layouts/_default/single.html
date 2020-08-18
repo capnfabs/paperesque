@@ -1,19 +1,14 @@
 {{ define "body-classes" -}}
 look-sheet-bkg
 {{- end }}
-{{ define "content" }}
-<div class="nav-bkg">
-  <nav class="content-container pagewide-bar-padding">
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-    {{- if not .Parent.IsHome -}}
-    <span class="divider">/ </span>
-    <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
-    {{- end -}}
-    {{ partial "right-links" . }}
-  </nav>
-</div>
+{{ define "breadcrumbs" }}
+  {{- if not .Parent.IsHome -}}
+  <span class="divider">/ </span>
+  <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
+  {{- end -}}
+{{ end }}
 
+{{ define "content" }}
 <section id="main" class="content-container look-sheet article-pad-v {{ if (or .Params.disableMarginNotes .Site.Params.disableMarginNotes) }}no-floating-footnotes{{ end }}" itemprop="mainEntityOfPage">
   <h1 itemprop="name" id="title">{{ .Title }}</h1>
   {{ if .Date }}
