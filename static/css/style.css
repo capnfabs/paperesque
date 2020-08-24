@@ -530,3 +530,27 @@ h2:not(:hover) .header-link, h3:not(:hover) .header-link, h4:not(:hover) .header
 .floating-footnotes li[role=doc-endnote] p:last-child {
   margin-bottom: 0;
 }
+
+article table td {
+  vertical-align: top;
+  padding: 0.25em;
+}
+
+a.timestamp {
+  border: solid 1px #007bff;
+  background: rgb(0,123,255);
+  background: linear-gradient(145deg, rgba(0,123,255,1) 60%, rgba(0,86,179,1) 100%);
+  color: white;
+  border-radius: 4px;
+  padding: 2px;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+figure audio {
+  /*
+  Ok, you can't use 100% for this -- both Chrome and Firefox do _weird things_ if you try that.
+  So we hardcode a pixel value manually based on the page width.
+  */
+  width: 580px;
+  max-width: 100%;
+}
