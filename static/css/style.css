@@ -197,7 +197,7 @@ figure {
   display: table;
 }
 
-figure:not(.no-border) video, figure:not(.no-border) img, figure:not(.no-border) object {
+figure:not(.no-border) video, figure:not(.no-border) img, figure:not(.no-border) object, figure:not(.no-border).style-tables table {
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
   max-width: 100%;
@@ -531,11 +531,6 @@ h2:not(:hover) .header-link, h3:not(:hover) .header-link, h4:not(:hover) .header
   margin-bottom: 0;
 }
 
-article table td {
-  vertical-align: top;
-  padding: 0.25em;
-}
-
 a.timestamp {
   border: solid 1px #007bff;
   background: rgb(0,123,255);
@@ -553,4 +548,41 @@ figure audio {
   */
   width: 580px;
   max-width: 100%;
+}
+
+article table {
+  margin: 2.5em auto;
+}
+
+article table td:not(:first-child), article table th:not(:first-child) {
+  padding-left: 2em;
+}
+
+article table thead tr {
+  border-bottom: 1px solid #00223E;
+}
+
+article table {
+  border-bottom: 1px solid #00223E;
+}
+
+article table thead th {
+  padding-bottom: 0.5em;
+  font-family: 'Lora', serif;;
+}
+
+article table tbody tr:first-child td {
+  padding-top: 0.75em;
+}
+
+article table tbody tr:last-child td {
+  padding-bottom: 0.75em;
+}
+
+article table td, article table th {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  vertical-align: top;
 }
