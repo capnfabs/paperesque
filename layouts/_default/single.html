@@ -2,13 +2,6 @@
   {{ if .Draft }}draft{{ end }} look-sheet-bkg
 {{- end }}
 
-{{ define "breadcrumbs" }}
-  {{- if not .Parent.IsHome -}}
-  <span class="divider">/ </span>
-  <a href="{{ .Site.BaseURL  }}{{ .CurrentSection.Type }}">{{.CurrentSection.Name}}</a>
-  {{- end -}}
-{{ end }}
-
 {{ define "content" }}
 {{- partial "single-article" . -}}
 {{ end }}

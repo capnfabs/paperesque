@@ -1,14 +1,3 @@
-{{ define "breadcrumbs" }}
-  <span class="divider">/ </span>
-  <a href="{{ .Site.BaseURL  }}{{ .Data.Plural }}">
-    {{- with .Parent.Params.breadcrumb_label -}}
-      {{- . -}}
-    {{- else -}}
-      {{- .Data.Plural -}}
-    {{- end -}}
-  </a>
-{{ end }}
-
 {{ define "content" }}
 <section id="main" class="content-container article-pad-v">
   <div>

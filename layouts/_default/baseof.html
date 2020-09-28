@@ -29,8 +29,21 @@
   <div class="nav-bkg">
     <nav class="content-container pagewide-bar-padding">
       <span class="divider">/ </span>
-      <a href="{{ .Site.BaseURL  }}" >{{ .Site.Title  }}</a>
-      {{ block "breadcrumbs" . }}{{ end }}
+      <a href="{{ .Site.Home.RelPermalink  }}" >{{ .Site.Title  }}</a>
+      {{ block "breadcrumbs" . }}
+        {{- with .Parent -}}
+          {{- if not .IsHome -}}
+          <span class="divider">/ </span>
+          <a href="{{ .RelPermalink }}">
+            {{- with .Params.breadcrumb_label -}}
+              {{- . -}}
+            {{- else -}}
+              {{- .Title -}}
+            {{- end -}}
+          </a>
+          {{- end -}}
+        {{- end -}}
+      {{ end }}
       {{ partial "right-links" . }}
     </nav>
   </div>
