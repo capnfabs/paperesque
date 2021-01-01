@@ -9,5 +9,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^3.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
 }

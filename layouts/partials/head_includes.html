@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="{{ relURL "/css/reboot.css" }}" />
 <link rel="stylesheet" href="{{ relURL "/css/style.css" }}" />
 <link rel="stylesheet" href="{{ relURL "/css/syntax.css" }}" />
-
-{{ $opts := dict "targetPath" "js/main.js" "minify" true "target" "es2015" }}
-{{ $mainJs := resources.Get "js/main.js" | js.Build $opts }}
-<script type="text/javascript" src="{{ $mainJs.RelPermalink }}" defer></script>
+<script type="text/javascript" src="{{ relURL "/js/main.js" }}"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
