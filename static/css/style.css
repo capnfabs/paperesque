@@ -197,6 +197,39 @@ figure {
   display: table;
 }
 
+.squash-bottom {
+  margin-bottom: 0;
+}
+
+.squash-top {
+  margin-top: 0;
+}
+
+.twoup.squash-bottom figure {
+  margin-bottom: 0;
+}
+
+.twoup.squash-top figure {
+  margin-top: 0;
+}
+
+.twoup {
+  display: flex;
+}
+.twoup figure {
+  max-width: 48%;
+  max-height: 42.5vh;
+  display: inline-block;
+}
+
+.twoup figure:first-child {
+  margin-left: 0;
+}
+
+.twoup figure:last-child {
+  margin-right: 0;
+}
+
 figure:not(.no-border) video, figure:not(.no-border) img, figure:not(.no-border) object, figure:not(.no-border).style-tables table {
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
