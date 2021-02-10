@@ -140,7 +140,6 @@ blockquote {
 
 .nav-bkg {
   color: white;
-  box-shadow: 0 5px 5px -5px #777777;
   background: #00223E;  /* fallback for old browsers */
   background: -webkit-linear-gradient(135deg, #00223E 80%, #FFA17F 80%);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(135deg, #00223E 80%, #FFA17F 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -148,10 +147,13 @@ blockquote {
 
 .nav-bkg-50 {
   color: white;
-  box-shadow: 0 5px 5px -5px #777777;
   background: #00223E;  /* fallback for old browsers */
   background: -webkit-linear-gradient(135deg, #00223E 50%, #FFA17F 50%);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(135deg, #00223E 50%, #FFA17F 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.drop-shadow {
+  box-shadow: 0 5px 5px -5px #777777;
 }
 
 .nav-bkg a {
@@ -298,12 +300,35 @@ twitter-widget {
   justify-content: space-between;
 }
 
+.flex-row.flex-center {
+  justify-content: center;
+}
+
 a.no-underline:hover {
   text-decoration: none;
 }
 
 a.no-underline:hover .re-underline {
   text-decoration: underline;
+}
+
+a.btn-dashed {
+  border: dashed 1px #777;
+  border-radius: 4px;
+  padding: 0.5em;
+}
+
+a.btn-dashed:hover {
+  box-shadow: 0 5px 5px -5px #777777;
+  border: solid 1px #777;
+  text-decoration: none;
+  background-color: #77777722;
+  transition: all 0.1s;
+}
+
+.vertical-margins {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .list-of-titles .post-title {

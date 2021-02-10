@@ -8,6 +8,8 @@
 
 {{ define "footer" }}
 
+{{- partial "single-footer-customisation" . -}}
+
 <!-- TODO: right now, this gets weird when there's a big title on the right.
 There might be better info here: https://stackoverflow.com/questions/34995740/css-when-inline-block-elements-line-break-parent-wrapper-does-not-fit-new-width
 and you can test on the android-development-developer-productivity article.
@@ -15,7 +17,7 @@ and you can test on the android-development-developer-productivity article.
 Would also be cool to make this fold on mobile so there's two links on separate lines.
 -->
   {{if (and (not .Parent.IsHome) (or .PrevInSection .NextInSection)) }}
-    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75">
+    <div class="nav-bkg-50 content-container-narrow-pad bottom-links text-0p75 drop-shadow">
       <nav class="flex-row">
       {{if .PrevInSection}}
       <a href="{{.PrevInSection.Permalink}}" class="flex-row v-center no-underline"  style="max-width:45%;">
