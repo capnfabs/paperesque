@@ -2,7 +2,9 @@ import { docReady, onWindowResize } from "./utils.js";
 import { ResizeObserver } from '@juggle/resize-observer';
 
 const ARTICLE_CONTENT_SELECTOR = "article#main";
-const FOOTNOTE_SECTION_SELECTOR = "section.footnotes[role=doc-endnotes]";
+const FOOTNOTE_SECTION_SELECTOR = "div.footnotes[role=doc-endnotes]";
+// this is a prefix-match on ID.
+const INDIVIDUAL_FOOTNOTE_SELECTOR = "li[id^='fn:']";
 const FLOATING_FOOTNOTE_MIN_WIDTH = 1260;
 
 // Computes an offset such that setting `top` on elemToAlign will put it
@@ -62,8 +64,7 @@ function clearFootnoteOffsets(footnotes) {
 // lol.
 function updateFootnoteFloat(shouldFloat) {
     const footnoteSection = document.querySelector(FOOTNOTE_SECTION_SELECTOR);
-    const footnotes = footnoteSection.querySelectorAll(
-        "li[role=doc-endnote]");
+    const footnotes = footnoteSection.querySelectorAll(INDIVIDUAL_FOOTNOTE_SELECTOR);
 
     if (shouldFloat) {
         // Do this first because we need styles applied before doing other
