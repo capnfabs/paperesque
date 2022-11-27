@@ -1,9 +1,16 @@
 {{ define "content" }}
 <section id="main" class="content-container article-pad-v">
-  <div>
-    <h1 id="title" style="margin-bottom: 0.75em">{{.Title}}</h1>
-    <ul id="list" class="list-unstyled list-of-titles">
-      {{ range .Data.Pages.ByDate.Reverse }}
+  <h1 id="title" style="margin-bottom: 0.75em">{{.Title}}</h1>
+  <div class="sidepull-container">
+    {{ with .Content }}
+    {{/* TODO: sidepull needs to have CSS breakpoints / inlining */}}
+    <div class="sidepull-side">
+      {{ . }}
+    </div>
+    {{ end }}
+    <div class="sidepull-main">
+      <ul id="list" class="list-unstyled list-of-titles">
+        {{ range .Data.Pages.ByDate.Reverse }}
         <li class="{{if .Draft }}draft{{ end }}">
           <a href="{{ .RelPermalink}}">
             <span class="post-title">{{ .Title }}</span>
@@ -17,8 +24,9 @@
             </span>
           </a>
         </li>
-      {{ end }}
-    </ul>
+        {{ end }}
+      </ul>
+    </div>
   </div>
 </section>
 {{ end }}

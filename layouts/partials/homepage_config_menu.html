@@ -1,0 +1,10 @@
+{{/* Pass a menu into this partial, each entry should have a .name and a .url */}}
+<ul id="list" class="list-unstyled list-of-titles">
+    {{ range . }}
+    <li>
+        <a href="{{ .url | relURL }}">
+            <span class="post-title">{{ .name }}</span>
+        </a>
+    </li>
+    {{ end }}
+</ul>

@@ -1,0 +1,34 @@
+{{ $section := index . "section"}}
+{{ $content := index . "content"}}
+
+{{- if not (and $content $section) -}}
+    {{ errorf "Partial used wrong, ensure that the arg has keys named section and content."}}
+{{- end -}}
+
+<div class="sidepull-container">
+    {{ with $content }}
+    {{/* TODO: sidepull needs to have CSS breakpoints / inlining */}}
+    <div class="sidepull-side">
+        {{ . }}
+    </div>
+    {{ end }}
+    <div class="sidepull-main">
+        <ul id="list" class="list-unstyled list-of-titles">
+        {{ range $section.Data.Pages.ByDate.Reverse }}
+        <li class="{{if .Draft }}draft{{ end }}">
+            <a href="{{ .RelPermalink}}">
+            <span class="post-title">{{ .Title }}</span>
+            <br>
+            <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+            <br>
+            <span class="post-meta">
+                {{ range .Params.tags }}
+                #{{ . }}&nbsp;
+                {{ end }}
+            </span>
+            </a>
+        </li>
+        {{ end }}
+        </ul>
+    </div>
+</div>

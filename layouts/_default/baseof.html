@@ -8,7 +8,7 @@
 
     {{ partial "meta.html" . }}
 
-    <title>{{ .Title }}{{ if ne $.Site.Title .Title }} || {{ $.Site.Title }}{{ end }}</title>
+    <title>{{ .Title | markdownify | plainify }}{{ if not .IsHome }} || {{ $.Site.Title | markdownify | plainify }}{{ end }}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
 
     {{ with .Site.Params.RSSCanonicalLink }}
@@ -48,6 +48,6 @@
     </nav>
   </div>
   {{ block "content" . }}{{ end }}
-  {{ block "footer" .}}{{ end }}
+  {{ block "footer" . }}{{ end }}
   </body>
 </html>

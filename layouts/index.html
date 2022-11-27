@@ -1,16 +1,31 @@
 {{ define "content" }}
 <section id="main" class="content-container article-pad-v">
-  <div>
-    <h1 id="title" style="margin-bottom: 0.75em">{{.Title}}</h1>
-    <ul id="list" class="list-unstyled list-of-titles">
-      {{ range .Site.Params.Menu }}
-        <li>
-          <a href="{{ .url | relURL }}">
-            <span class="post-title">{{ .name }}</span>
-          </a>
-        </li>
+  <h1 id="title" style="margin-bottom: 0.75em">{{with .Title}}{{.}}{{else}}{{.Site.Title}}{{end}}</h1>
+  {{ if .Site.Params.Menu }}
+    {{ partial "homepage_config_menu" .Site.Params.Menu }}
+  {{ else if .Params.display_section }}
+    {{ $filtered_sections := first 1 (where .Sections "Type" "eq" .Params.display_section) }}
+    {{- if not $filtered_sections -}}
+      {{ $section_names := slice }}
+      {{ range .Sections }}
+        {{ $section_names = $section_names | append .Type }}
       {{ end }}
-    </ul>
-  </div>
+      {{errorf "Couldn't find a section named '%s'. Try one of %v" .Params.display_section $section_names }}
+    {{- end -}}
+    {{ $args := dict
+        "section" (index $filtered_sections 0)
+        "content" .Content
+      }}
+    {{ partial "homepage_display_section"  $args }}
+  {{ else if .Content }}
+    {{/* implies Content alone because Content + display_section covered earlier */}}
+    {{/* TODO: formatting? */}}
+    {{ .Content }}
+  {{ else }}
+    {{errorf `Couldn't figure out what to render for the homepage. Either:
+(1) add [[params.menu]] entries in your config.toml
+(2) create a top-level _index.md with content
+(3) create a top-level _index.md with a "display_section" key in the front-matter.`}}
+  {{ end }}
 </section>
 {{ end }}

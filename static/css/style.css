@@ -8,7 +8,8 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   background-color: #eeeeee;
-  hyphens: none; /* reset changes from <p> */
+  hyphens: none;
+  /* reset changes from <p> */
   -webkit-hyphens: none;
   -ms-hyphens: none;
   word-wrap: break-word;
@@ -42,7 +43,12 @@ code {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Lora', serif;
 }
 
@@ -52,7 +58,7 @@ h1#title {
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
 .content-container {
@@ -73,6 +79,7 @@ body {
 }
 
 @media(min-width: 720px) {
+
   /* Make everything 10% smaller! */
   html {
     font-size: 14.4px;
@@ -128,8 +135,8 @@ figure.smaller {
 }
 
 .article-pad-v {
-    padding-top: 1em;
-    padding-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 blockquote {
@@ -140,16 +147,22 @@ blockquote {
 
 .nav-bkg {
   color: white;
-  background: #00223E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 80%, #FFA17F 80%);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 80%, #FFA17F 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00223E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 80%, #FFA17F 80%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 80%, #FFA17F 80%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .nav-bkg-50 {
   color: white;
-  background: #00223E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 50%, #FFA17F 50%);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 50%, #FFA17F 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00223E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 50%, #FFA17F 50%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 50%, #FFA17F 50%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .drop-shadow {
@@ -164,7 +177,9 @@ blockquote {
   padding: 0.5em 1em;
 }
 
-nav a, nav a:hover, nav a:visited {
+nav a,
+nav a:hover,
+nav a:visited {
   color: white;
 }
 
@@ -172,7 +187,10 @@ nav a, nav a:hover, nav a:visited {
   color: #777;
 }
 
-.post-tags, .post-tags a, .post-tags a:hover, .post-tags a:visited {
+.post-tags,
+.post-tags a,
+.post-tags a:hover,
+.post-tags a:visited {
   color: #777;
 }
 
@@ -180,7 +198,8 @@ nav a, nav a:hover, nav a:visited {
   margin-top: 2em;
 }
 
-.article-body h2,.article-body h3 {
+.article-body h2,
+.article-body h3 {
   margin-top: 2em;
   margin-bottom: 0.5em;
 }
@@ -218,6 +237,7 @@ figure {
 .twoup {
   display: flex;
 }
+
 .twoup figure {
   max-width: 48%;
   max-height: 42.5vh;
@@ -232,7 +252,10 @@ figure {
   margin-right: 0;
 }
 
-figure:not(.no-border) video, figure:not(.no-border) img, figure:not(.no-border) object, figure:not(.no-border).style-tables table {
+figure:not(.no-border) video,
+figure:not(.no-border) img,
+figure:not(.no-border) object,
+figure:not(.no-border).style-tables table {
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px #777777;
   max-width: 100%;
@@ -335,6 +358,7 @@ a.btn-dashed:hover {
   color: black;
   font-size: 1.5em;
 }
+
 .list-of-titles li a {
   text-decoration: none;
   display: block;
@@ -369,6 +393,7 @@ ul.right-links {
   display: none;
   float: right;
 }
+
 ul.right-links li {
   display: inline-block;
   margin-right: 1em;
@@ -380,7 +405,8 @@ ul.right-links li {
   }
 }
 
-.embed.rich, img {
+.embed.rich,
+img {
   max-width: 100%;
 }
 
@@ -390,12 +416,13 @@ p {
   -ms-hyphens: auto;
 }
 
-.look-sheet-bkg.draft, .list-of-titles li.draft a:hover {
-  background: repeating-linear-gradient(     135deg,   white,   white 10px,   #ffd4a3 12px,   #ffd4a3 12px );
+.look-sheet-bkg.draft,
+.list-of-titles li.draft a:hover {
+  background: repeating-linear-gradient(135deg, white, white 10px, #ffd4a3 12px, #ffd4a3 12px);
 }
 
 .list-of-titles li.draft {
-  background: repeating-linear-gradient(     135deg,    #fffdf7,   #fffdf7 10px,   #ffd4a3 12px,   #ffd4a3 12px );
+  background: repeating-linear-gradient(135deg, #fffdf7, #fffdf7 10px, #ffd4a3 12px, #ffd4a3 12px);
 }
 
 .post-meta.draft {
@@ -416,7 +443,7 @@ aside.article-aside {
   margin-top: 3em;
 }
 
-aside.article-aside > p:first-child {
+aside.article-aside>p:first-child {
   margin-top: 1rem;
 }
 
@@ -433,7 +460,7 @@ aside.content-warning {
   display: inline-block;
 }
 
-aside.content-warning > p:last-child {
+aside.content-warning>p:last-child {
   margin-bottom: 0;
 }
 
@@ -444,19 +471,27 @@ spacing, but if it appears after other content it should have sufficient spacing
 to make it look like a new section. I think we should theoretically be able to
 do that with margins, but I don't understand how they work enough yet.
 */
-h2+aside.article-aside, h3+aside.article-aside, h4+aside.article-aside, h5+aside.article-aside {
+h2+aside.article-aside,
+h3+aside.article-aside,
+h4+aside.article-aside,
+h5+aside.article-aside {
   margin-top: 0.5em;
 }
 
 /* If we've nested this inside something, we probably don't want to have the huge margin */
-h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
   margin-top: 0.5em;
 }
 
 .expander {
   background-color: #fffdf7;
   padding: 0 1em;
-  position: relative; /* anchor for the buttons */
+  position: relative;
+  /* anchor for the buttons */
 }
 
 .expander h2:first-child {
@@ -476,15 +511,18 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
   background-color: transparent;
   line-height: 1.5;
   border-radius: .25rem;
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   padding: .25rem .75rem;
   font-size: .875rem;
 
   color: white;
   box-shadow: 0 5px 5px -5px #777777;
-  background: #00223E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00223E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .expander .button {
@@ -499,19 +537,19 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
   display: none;
 }
 
-.expander input.show:checked ~ .inner {
-  display:block;
+.expander input.show:checked~.inner {
+  display: block;
 }
 
-.expander input.hide:checked ~ .inner {
+.expander input.hide:checked~.inner {
   display: none;
 }
 
-.expander input.show:checked ~ .button-show {
+.expander input.show:checked~.button-show {
   display: none;
 }
 
-.expander input.hide:checked ~ .button-hide {
+.expander input.hide:checked~.button-hide {
   display: none;
 }
 
@@ -535,13 +573,13 @@ a.footnote-backref::before {
   position: absolute;
   right: 0;
   top: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, white 20%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, white 20%);
   color: grey;
   fill: grey;
 }
 
 aside .header-link {
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #fffdf7 20%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #fffdf7 20%);
 }
 
 .header-link:hover {
@@ -549,11 +587,15 @@ aside .header-link {
 }
 
 /* Keep the selectors here in sync with site.js  */
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   position: relative;
 }
 
-h2:not(:hover) .header-link, h3:not(:hover) .header-link, h4:not(:hover) .header-link {
+h2:not(:hover) .header-link,
+h3:not(:hover) .header-link,
+h4:not(:hover) .header-link {
   display: none;
 }
 
@@ -591,8 +633,8 @@ h2:not(:hover) .header-link, h3:not(:hover) .header-link, h4:not(:hover) .header
 
 a.timestamp {
   border: solid 1px #007bff;
-  background: rgb(0,123,255);
-  background: linear-gradient(145deg, rgba(0,123,255,1) 60%, rgba(0,86,179,1) 100%);
+  background: rgb(0, 123, 255);
+  background: linear-gradient(145deg, rgba(0, 123, 255, 1) 60%, rgba(0, 86, 179, 1) 100%);
   color: white;
   border-radius: 4px;
   padding: 2px;
@@ -612,7 +654,8 @@ article table {
   margin: 2.5em auto;
 }
 
-article table td:not(:first-child), article table th:not(:first-child) {
+article table td:not(:first-child),
+article table th:not(:first-child) {
   padding-left: 2em;
 }
 
@@ -626,7 +669,7 @@ article table {
 
 article table thead th {
   padding-bottom: 0.5em;
-  font-family: 'Lora', serif;;
+  font-family: 'Lora', serif;
 }
 
 article table tbody tr:first-child td {
@@ -637,10 +680,28 @@ article table tbody tr:last-child td {
   padding-bottom: 0.75em;
 }
 
-article table td, article table th {
+article table td,
+article table th {
   padding-left: 0.5em;
   padding-right: 0.5em;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   vertical-align: top;
+}
+
+.sidepull-side {
+  margin-bottom: 4em;
+}
+
+@media(min-width: 1170px) {
+  .sidepull-container {
+    position: relative;
+  }
+
+  .sidepull-container .sidepull-side {
+    position: absolute;
+    width: 16em;
+    top: 0;
+    left: -18em /* width + a margin */;
+  }
 }
