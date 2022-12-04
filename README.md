@@ -41,9 +41,15 @@ theme = "paperesque"
 
 ## Using Features
 
-### FYI: the Home Page is Config-driven
+### Homepage
 
-When you first install and switch to the theme, you might find that your homepage is blank. That's because all the links on the homepage are specified in your `config.toml`. Set it up like this:
+You've got a bunch of options for the homepage:
+
+#### 1. A custom list of links.
+
+This was the _only_ thing supported until recently (Dec 2022-ish).
+
+Add something like this to your site's `config.toml`:
 
 ```toml
 [[params.menu]]
@@ -63,9 +69,21 @@ When you first install and switch to the theme, you might find that your homepag
   url = "contact/"
 ```
 
+#### 2. Markdown content
+
+You can create a `/content/_index.md` and the content of that page will render as the homepage.
+
+#### 3. A section
+
+You can create a `/content/_index.md` and in the [frontmatter](https://gohugo.io/content-management/front-matter/) add a `display_section` key. The name of that section will be used to render a list of content.
+
+### 4. A section + custom content in a sidebar.
+
+Do the same as for option 3 ('a section'), but also include markdown content in that file. The markdown content will render on the left as a sidebar, and the list of section items will render in the main panel.
+
 ### Links in the top-right corner
 
-These are also config driven! Add this to your `config.toml` (for example):
+These are config driven! Add this to your `config.toml` (for example):
 
 ```toml
 [[params.topmenu]]
