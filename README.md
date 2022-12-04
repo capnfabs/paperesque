@@ -172,7 +172,7 @@ to install the required dependencies.
 Run:
 
 ```sh
-parcel watch --out-dir static/js js/main.js
+yarn run parcel watch
 ```
 
 Simple as that!
@@ -180,7 +180,7 @@ Simple as that!
 ### Production builds (i.e. before you commit code / deploy code)
 
 ```sh
-parcel build --no-source-maps --experimental-scope-hoisting --out-dir static/js js/main.js
+yarn run parcel build --no-source-maps
 ```
 
 _Experimental Scope Hoisting_ inlines Parcel's module loader. It shaves off like 2kB Gzipped. Laugh all you want, but that's half a second at dial-up speeds 😉

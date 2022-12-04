@@ -6,10 +6,17 @@
   "author": "Fabian Tamp (@capnfabs)",
   "license": "MIT",
   "private": true,
+  "browserslist": "> 0.5%, not dead",
   "dependencies": {
-    "@juggle/resize-observer": "^3.0.2"
+    "@juggle/resize-observer": "3.x"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel": "2.x"
+  },
+  "targets": {
+    "default": {
+      "source": "./js/main.js",
+      "distDir": "./static/js"
+    }
   }
 }
