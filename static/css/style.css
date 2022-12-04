@@ -704,4 +704,8 @@ article table th {
     top: 0;
     left: -18em /* width + a margin */;
   }
+
+  .sidepull-not-when-sidebar-shown {
+    display: none;
+  }
 }

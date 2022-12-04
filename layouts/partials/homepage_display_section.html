@@ -1,4 +1,5 @@
 {{ $section := index . "section"}}
+{{ $section_title := index . "section_title"}}
 {{ $content := index . "content"}}
 
 {{- if not (and $content $section) -}}
@@ -7,12 +8,14 @@
 
 <div class="sidepull-container">
     {{ with $content }}
-    {{/* TODO: sidepull needs to have CSS breakpoints / inlining */}}
     <div class="sidepull-side">
         {{ . }}
     </div>
     {{ end }}
     <div class="sidepull-main">
+        {{ with $section_title }}
+            <h1 class="sidepull-not-when-sidebar-shown" style="margin-bottom: 1em">{{.}}</h2>
+        {{ end }}
         <ul id="list" class="list-unstyled list-of-titles">
         {{ range $section.Data.Pages.ByDate.Reverse }}
         <li class="{{if .Draft }}draft{{ end }}">

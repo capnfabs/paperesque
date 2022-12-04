@@ -14,12 +14,12 @@
     {{- end -}}
     {{ $args := dict
         "section" (index $filtered_sections 0)
+        "section_title" .Params.display_section_expanded_title
         "content" .Content
       }}
     {{ partial "homepage_display_section"  $args }}
   {{ else if .Content }}
     {{/* implies Content alone because Content + display_section covered earlier */}}
-    {{/* TODO: formatting? */}}
     {{ .Content }}
   {{ else }}
     {{errorf `Couldn't figure out what to render for the homepage. Either:
