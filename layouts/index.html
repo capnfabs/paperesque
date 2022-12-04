@@ -1,3 +1,6 @@
+{{ define "body-classes" }}
+sticky-nav
+{{ end }}
 {{ define "content" }}
 <section id="main" class="content-container article-pad-v">
   <h1 id="title" style="margin-bottom: 0.75em">{{with .Title}}{{.}}{{else}}{{.Site.Title}}{{end}}</h1>

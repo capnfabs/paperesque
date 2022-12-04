@@ -145,6 +145,12 @@ blockquote {
   margin: 2em 0 2em 1em;
 }
 
+body.sticky-nav .navbar {
+  position: sticky;
+  z-index: 1000; /* theoretically this should be applied automatically but it doesn't work on Safari in some circumstances */
+  top: 0;
+}
+
 .nav-bkg {
   color: white;
   background: #00223E;
@@ -699,10 +705,16 @@ article table th {
   }
 
   .sidepull-container .sidepull-side {
+    /*
+      fallback will be absolute positioning if browser doesn't know about sticky
+      the `top` will result in maybe a little too much padding but it'll work still
+    */
     position: absolute;
+    position: sticky;
     width: 16em;
-    top: 0;
-    left: -18em /* width + a margin */;
+    top: 3em;
+    margin-left: -18em /* width + a margin */;
+    float: left;
   }
 
   .sidepull-not-when-sidebar-shown {
