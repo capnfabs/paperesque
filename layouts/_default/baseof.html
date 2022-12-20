@@ -48,6 +48,8 @@
     </nav>
   </div>
   {{ block "content" . }}{{ end }}
-  {{ block "footer" . }}{{ end }}
+  {{ if not .Params.hide_footer }}
+    {{ block "footer" . }}{{ end }}
+  {{ end }}
   </body>
 </html>
