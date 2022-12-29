@@ -2,52 +2,52 @@
 {{- $original := .Page.Resources.GetMatch $path -}}
 {{- if not $original -}}
     {{- errorf "couldn't find resource for src: %s" $path -}}
-{{- else if and (ne "jpeg" $original.MediaType.SubType) (ne "png" $original.MediaType.SubType) -}}
-    {{- errorf "src %s is a '%s', expected 'jpeg' or 'png'" $path $original.MediaType.SubType -}}
-{{- else -}}
-    {{- /* Below is a copy paste of https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag modified to use srcsets */ -}}
-    {{- /* Note that it presently uses `markdownify` instead of $.Page.RenderString for consistency with Hugo's `figure` shortcode.  */ -}}
-    <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
-        {{- if .Get "link" -}}
-            <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
-        {{- end }}
-        {{ if (or (ge $original.Width 1304) (ge $original.Height 1304)) -}}
-            {{/* Add the original to the droplist, so it will get removed later. */}}
-            {{- if not (.Page.Scratch.Get "droplist") -}}
-                {{- .Page.Scratch.Set "droplist" (slice) -}}
-            {{- end -}}
-            {{- .Page.Scratch.Add "droplist" $original.RelPermalink -}}
-            {{/* Note: 652px is the max width of an img in article content. I measured this using dev tools; but it's dependent on the styles for the page. */}}
-            {{- $resized_1x := $original.Fit "652x652 q95" -}}
-            {{- $resized_2x := $original.Fit "1304x1304 q95" -}}
-            <img srcset="{{ $resized_1x.RelPermalink }},
-                         {{ $resized_2x.RelPermalink }} 2x"
-                {{- /* Use small one by default to be kind to old browsers */}}
-                src="{{ $resized_1x.RelPermalink }}"
-        {{ else }}
-            <img src="{{ $original.RelPermalink }}"
-        {{ end }}
-            {{- if or (.Get "alt") (.Get "caption") -}}
-            alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
-            {{- end -}}
-            {{- with .Get "width" }} width="{{ . }}"{{ end -}}
-            {{- with .Get "height" }} height="{{ . }}"{{ end -}}
-        /> <!-- Closing img tag -->
-        {{- if .Get "link" }}</a>{{ end -}}
-        {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") }}
-            <figcaption>
-                {{ with (.Get "title") -}}
-                    <h4>{{ . }}</h4>
-                {{- end -}}
-                {{- if or (.Get "caption") (.Get "attr") -}}<p>
-                    {{- .Get "caption" | markdownify -}}
-                    {{- with .Get "attrlink" }}
-                        <a href="{{ . }}">
-                    {{- end -}}
-                    {{- .Get "attr" | markdownify -}}
-                    {{- if .Get "attrlink" }}</a>{{ end }}</p>
-                {{- end }}
-            </figcaption>
-        {{- end }}
-    </figure>
 {{- end -}}
+{{- if and (ne "jpeg" $original.MediaType.SubType) (ne "png" $original.MediaType.SubType) -}}
+    {{- errorf "src %s is a '%s', expected 'jpeg' or 'png'" $path $original.MediaType.SubType -}}
+    {{- end -}}
+{{- /* Below is a copy paste of https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag modified to use srcsets */ -}}
+{{- /* Note that it presently uses `markdownify` instead of $.Page.RenderString for consistency with Hugo's `figure` shortcode.  */ -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{- if .Get "link" -}}
+        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- end }}
+    {{ if (or (ge $original.Width 1304) (ge $original.Height 1304)) -}}
+        {{/* Add the original to the droplist, so it will get removed later. */}}
+        {{- if not (.Page.Scratch.Get "droplist") -}}
+            {{- .Page.Scratch.Set "droplist" (slice) -}}
+        {{- end -}}
+        {{- .Page.Scratch.Add "droplist" $original.RelPermalink -}}
+        {{/* Note: 652px is the max width of an img in article content. I measured this using dev tools; but it's dependent on the styles for the page. */}}
+        {{- $resized_1x := $original.Fit "652x652 q95" -}}
+        {{- $resized_2x := $original.Fit "1304x1304 q95" -}}
+        <img srcset="{{ $resized_1x.RelPermalink }},
+                        {{ $resized_2x.RelPermalink }} 2x"
+            {{- /* Use small one by default to be kind to old browsers */}}
+            src="{{ $resized_1x.RelPermalink }}"
+    {{ else }}
+        <img src="{{ $original.RelPermalink }}"
+    {{ end }}
+        {{- if or (.Get "alt") (.Get "caption") -}}
+        alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+        {{- end -}}
+        {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+        {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+    /> <!-- Closing img tag -->
+    {{- if .Get "link" }}</a>{{ end -}}
+    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") }}
+        <figcaption>
+            {{ with (.Get "title") -}}
+                <h4>{{ . }}</h4>
+            {{- end -}}
+            {{- if or (.Get "caption") (.Get "attr") -}}<p>
+                {{- .Get "caption" | markdownify -}}
+                {{- with .Get "attrlink" }}
+                    <a href="{{ . }}">
+                {{- end -}}
+                {{- .Get "attr" | markdownify -}}
+                {{- if .Get "attrlink" }}</a>{{ end }}</p>
+            {{- end }}
+        </figcaption>
+    {{- end }}
+</figure>
