@@ -222,6 +222,7 @@ kbd {
 figure {
   margin: 2em auto;
   display: table;
+  text-align: center;
 }
 
 .squash-bottom {
