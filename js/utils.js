@@ -26,4 +26,4 @@ function onWindowResize(fn) {
     });
 }
 
-export { docReady, windowLoaded, onWindowResize};
+export { docReady, onWindowResize};

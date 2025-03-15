@@ -1,9 +1,21 @@
 <ul class="list-unstyled right-links">
 {{ range .Site.Params.TopMenu }}
-          <li>
-            <a href="{{ .url | relURL }}">
-              <span class="post-title">{{ .name }}</span>
-            </a>
-          </li>
+  <li>
+    <a href="{{ .url | relURL }}">
+      <span class="post-title">{{ .name }}</span>
+    </a>
+  </li>
 {{ end }}
 </ul>
+<details id="right-links-details" class="right-links">
+  <summary></summary>
+  <ul class="drop-shadow">
+  {{ range .Site.Params.TopMenu }}
+    <li>
+      <a href="{{ .url | relURL }}">
+        <span class="post-title">{{ .name }}</span>
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+</details>

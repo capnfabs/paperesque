@@ -395,6 +395,40 @@ a.btn-dashed:hover {
   color: #777;
 }
 
+details.right-links {
+  float: right;
+  text-align: right;
+}
+details.right-links summary {
+  list-style: none;
+  &::after {
+    content: '…';
+    color: #212529;
+    border-radius: .25rem;
+    border: 1px solid #212529;
+    font-weight: bold;
+    padding: 2px 4px;
+  }
+  [open] &::after {
+    background-color: #21252922;
+  }
+}
+details.right-links summary::-webkit-details-marker {
+  display: none;
+}
+details.right-links ul {
+  background:  #00223EDD;
+  margin-top: 8px;
+  padding: 8px 16px;
+  width: 100vw;
+  position: absolute;
+  right: 0;
+}
+details.right-links li {
+  list-style: none;
+  padding: 4px;
+}
+
 ul.right-links {
   display: none;
   float: right;
@@ -406,6 +440,9 @@ ul.right-links li {
 }
 
 @media(min-width: 440px) {
+  details.right-links {
+    display: none;
+  }
   ul.right-links {
     display: block;
   }
@@ -523,12 +560,12 @@ h6:first-child {
 
   color: white;
   box-shadow: 0 5px 5px -5px #777777;
-  background: #00223E;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  background: #00223E;
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
+  background: -webkit-linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(135deg, #00223E 85%, #FFA17F 85%);
 }
 
 .expander .button {
