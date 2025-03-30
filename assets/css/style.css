@@ -1,7 +1,7 @@
 :root {
   --color-text: #212529;
   --color-fg-darken: #21252922;
-  --color-codeblock-bg: #eeeeee;
+  --color-code-inline-bg: #eeeeee;
 
   --color-text-for-darkbg: white;
 
@@ -44,42 +44,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /** still too dark */
-    --color-text: #AEACA4;
-    --color-fg-darken: #A4A29A22;
-    --color-codeblock-bg: #eeeeee;
+    /** maybe take this more yellow? */
+    --color-text: #B1AFA7;
+    --color-fg-darken: #B1AFA722;
+    --color-code-inline-bg: #060A0D;
 
-    --color-text-for-darkbg: white;
-    /* this is about right */
+    --color-text-for-darkbg: #CDC9B9;
     --color-border-generic: #53524E;
 
     --color-boxshadow: #222222;
-    --color-quote-border: #777;
+    --color-quote-border: #53524E;
 
-    /* These two copied from chroma theme (syntax.css) */
-    /* these are way too intense for darkmode */
-    --color-pre-text: #f8f8f2;
+    /* I modified these but the lightmode ones come from chroma CSS */
+    --color-pre-text: #E6E6E0;
     --color-pre-bg: #272822;
 
-    /* maybe too saturated still */
-    --color-sheet-bg: #11202D;
-    --color-desktop-bg: #11202D;
+    --color-sheet-bg: #17232D;
+    --color-desktop-bg: #17232D;
 
-    /* not sufficiently distinguished */
-    --color-meta-text: #777;
+    --color-meta-text: #807E78;
+    --color-caption-text: #807E78;
 
+    /* TODO */
     /* this + the text on top of the bg is too intense */
     --color-kbd-bg: #333;
     --color-hr: #AAA;
-
-    /* weirdly this feels very right */
-    --color-caption-text: #5e5e5e;
 
     --color-btn-border: #777;
     /* this needs to increase saturation */
     --color-btn-hover-bg: #77777722;
 
-    --color-draft-bg-stripe: #322A20;
+    --color-draft-bg-stripe: #403629;
 
     /* these are looking right */
     --color-header-brand-primary: #0C1F2D;
@@ -87,9 +82,8 @@
     --color-header-brand-secondary: #754A3A;
 
     /* this color comes from reboot.css */
-    /* these are too intense for darkmode, need to be desaturated */
-    --color-link-text: #007bff;
-    --color-link-hover: #0056B3;
+    --color-link-text: #217AD9;
+    --color-link-hover: #268FFF;
 
       /** too bright */
     --color-nav-text: var(--color-text-for-darkbg);
@@ -97,6 +91,11 @@
     --color-timestamp-bkg-primary: var(--color-link-text);
     --color-timestamp-bkg-secondary: var(--color-link-hover);
     --color-timestamp-text: var(--color-text-for-darkbg);
+
+  }
+
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -110,7 +109,7 @@ body {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  background-color: var(--color-codeblock-bg);
+  background-color: var(--color-code-inline-bg);
   hyphens: none;
   /* reset changes from <p> */
   -webkit-hyphens: none;
