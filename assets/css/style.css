@@ -23,7 +23,7 @@
   --color-hr: #AAA;
   --color-caption-text: #5e5e5e;
   --color-btn-border: #777;
-  --color-btn-hover-bg: #77777722;
+  --color-btn-hover-bg: #EDEDED;
 
   --color-draft-bg-stripe: #ffd4a3;
 
@@ -44,7 +44,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /** maybe take this more yellow? */
     --color-text: #B1AFA7;
     --color-fg-darken: #B1AFA722;
     --color-code-inline-bg: #060A0D;
@@ -74,7 +73,7 @@
     --color-draft-bg-stripe: #403629;
 
     --color-header-brand-primary: #0C1F2D;
-    --color-header-brand-secondary-ddopacity: #00223EDD;
+    --color-header-brand-secondary-ddopacity: #0C1F2DDD;
     --color-header-brand-secondary: #754A3A;
 
     /* this color comes from reboot.css */
