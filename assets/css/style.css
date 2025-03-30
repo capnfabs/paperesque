@@ -65,18 +65,14 @@
     --color-meta-text: #807E78;
     --color-caption-text: #807E78;
 
-    /* TODO */
-    /* this + the text on top of the bg is too intense */
     --color-kbd-bg: #333;
-    --color-hr: #AAA;
+    --color-hr: var(--color-text);
 
     --color-btn-border: #777;
-    /* this needs to increase saturation */
-    --color-btn-hover-bg: #77777722;
+    --color-btn-hover-bg: #082D4D;
 
     --color-draft-bg-stripe: #403629;
 
-    /* these are looking right */
     --color-header-brand-primary: #0C1F2D;
     --color-header-brand-secondary-ddopacity: #00223EDD;
     --color-header-brand-secondary: #754A3A;
@@ -85,11 +81,10 @@
     --color-link-text: #217AD9;
     --color-link-hover: #268FFF;
 
-      /** too bright */
-    --color-nav-text: var(--color-text-for-darkbg);
+    --color-nav-text: #CDC9B9;
 
-    --color-timestamp-bkg-primary: var(--color-link-text);
-    --color-timestamp-bkg-secondary: var(--color-link-hover);
+    --color-timestamp-bkg-primary: #1D6BBF;
+    --color-timestamp-bkg-secondary: var(--color-link-text);
     --color-timestamp-text: var(--color-text-for-darkbg);
 
   }
