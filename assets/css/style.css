@@ -1,7 +1,7 @@
 :root {
   --color-text: #212529;
   --color-fg-darken: #21252922;
-  --color-codeblock-bg: #eeeeee;
+  --color-code-inline-bg: #eeeeee;
 
   --color-text-for-darkbg: white;
 
@@ -23,7 +23,7 @@
   --color-hr: #AAA;
   --color-caption-text: #5e5e5e;
   --color-btn-border: #777;
-  --color-btn-hover-bg: #77777722;
+  --color-btn-hover-bg: #EDEDED;
 
   --color-draft-bg-stripe: #ffd4a3;
 
@@ -41,13 +41,57 @@
   --color-timestamp-text: var(--color-text-for-darkbg);
 }
 
-/* TODO */
-/*
+
 @media (prefers-color-scheme: dark) {
   :root {
+    --color-text: #B1AFA7;
+    --color-fg-darken: #B1AFA722;
+    --color-code-inline-bg: #060A0D;
+
+    --color-text-for-darkbg: #CDC9B9;
+    --color-border-generic: #53524E;
+
+    --color-boxshadow: #222222;
+    --color-quote-border: #53524E;
+
+    /* I modified these but the lightmode ones come from chroma CSS */
+    --color-pre-text: #E6E6E0;
+    --color-pre-bg: #272822;
+
+    --color-sheet-bg: #17232D;
+    --color-desktop-bg: #17232D;
+
+    --color-meta-text: #807E78;
+    --color-caption-text: #807E78;
+
+    --color-kbd-bg: #333;
+    --color-hr: var(--color-text);
+
+    --color-btn-border: #777;
+    --color-btn-hover-bg: #082D4D;
+
+    --color-draft-bg-stripe: #403629;
+
+    --color-header-brand-primary: #0C1F2D;
+    --color-header-brand-secondary-ddopacity: #0C1F2DDD;
+    --color-header-brand-secondary: #754A3A;
+
+    /* this color comes from reboot.css */
+    --color-link-text: #217AD9;
+    --color-link-hover: #268FFF;
+
+    --color-nav-text: #CDC9B9;
+
+    --color-timestamp-bkg-primary: #1D6BBF;
+    --color-timestamp-bkg-secondary: var(--color-link-text);
+    --color-timestamp-text: var(--color-text-for-darkbg);
+
+  }
+
+  html {
+    color-scheme: dark;
   }
 }
-*/
 
 body {
   -webkit-font-smoothings: antialiased;
@@ -59,7 +103,7 @@ body {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  background-color: var(--color-codeblock-bg);
+  background-color: var(--color-code-inline-bg);
   hyphens: none;
   /* reset changes from <p> */
   -webkit-hyphens: none;
