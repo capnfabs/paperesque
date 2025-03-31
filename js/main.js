@@ -33,7 +33,7 @@ docReady(() => {
   const updateThemeColors = () => {
     if (isNavbarVisible) {
       metaTagLight.setAttribute('content', '#00223E');
-      metaTagDark.setAttribute('content', '#0C1F2D');
+      metaTagDark.setAttribute('content', '#08151E');
     } else {
       const bodyIsFullscreenSheet = document.body.classList.contains('look-sheet-bkg') && !floatingSheetBreakpoint.matches;
       if (bodyIsFullscreenSheet) {

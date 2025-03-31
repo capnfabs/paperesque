@@ -82,12 +82,11 @@
         - layouts/partials/meta.html
         - main.js
     */
-    --color-header-brand-primary: #0C1F2D;
-    --color-header-brand-secondary-ddopacity: #0C1F2DDD;
+    --color-header-brand-primary: #08151E;
+    --color-header-brand-secondary-ddopacity: #08151EDD;
     --color-header-brand-secondary: #754A3A;
 
-    /* this color comes from reboot.css */
-    --color-link-text: #217AD9;
+    --color-link-text: #2381E5;
     --color-link-hover: #268FFF;
 
     --color-nav-text: #CDC9B9;
