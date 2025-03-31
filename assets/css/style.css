@@ -27,6 +27,11 @@
 
   --color-draft-bg-stripe: #ffd4a3;
 
+  /*
+    keep in sync with theme color in:
+      - layouts/partials/meta.html
+      - main.js
+  */
   --color-header-brand-primary: #00223E;
   --color-header-brand-secondary-ddopacity: #00223EDD;
   --color-header-brand-secondary: #FFA17F;
@@ -72,6 +77,11 @@
 
     --color-draft-bg-stripe: #403629;
 
+    /*
+      keep in sync with theme color in:
+        - layouts/partials/meta.html
+        - main.js
+    */
     --color-header-brand-primary: #0C1F2D;
     --color-header-brand-secondary-ddopacity: #0C1F2DDD;
     --color-header-brand-secondary: #754A3A;
@@ -85,7 +95,6 @@
     --color-timestamp-bkg-primary: #1D6BBF;
     --color-timestamp-bkg-secondary: var(--color-link-text);
     --color-timestamp-text: var(--color-text-for-darkbg);
-
   }
 
   html {
@@ -98,6 +107,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  background-color: var(--color-desktop-bg);
 }
 
 code {
@@ -153,10 +164,6 @@ h1#title {
   font-size: 2em;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-}
-
 .content-container {
   padding-left: 1em;
   padding-right: 1em;
@@ -170,7 +177,11 @@ body {
   align-items: center;
 }
 
-.look-sheet-bkg {
+body {
+  background-color: var(--color-desktop-bg);
+}
+
+body.look-sheet-bkg {
   background-color: var(--color-sheet-bg);
 }
 
@@ -213,7 +224,7 @@ body {
     background-color: var(--color-sheet-bg);
   }
 
-  .look-sheet-bkg {
+  body.look-sheet-bkg {
     background-color: var(--color-desktop-bg);
   }
 }
@@ -368,10 +379,6 @@ hr {
   border: none;
   border-top: 1px solid var(--color-hr);
   margin: 2.5em 3em;
-}
-
-body {
-  background-color: var(--color-desktop-bg);
 }
 
 figcaption {

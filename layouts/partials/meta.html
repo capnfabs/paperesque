@@ -11,7 +11,8 @@
 <link rel="manifest" href="{{.Site.BaseURL}}/site.webmanifest">
 <link rel="mask-icon" href="{{.Site.BaseURL}}/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" data-tag="light" media="(prefers-color-scheme: light)" content="#00223E" />
+<meta name="theme-color" data-tag="dark" media="(prefers-color-scheme: dark)" content="#0C1F2D" />
 
 
 {{ with.Description }}<meta name="description" content="{{ . }}" />

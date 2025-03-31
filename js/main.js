@@ -18,3 +18,44 @@ docReady(() => {
   })
 
 });
+
+// change the theme color based on whether the navbar is visible or not
+// (and therefore the fill around the dynamic island on iOS)
+docReady(() => {
+  const nav = document.querySelector(".navbar nav");
+  const metaTagLight = document.querySelector('meta[name="theme-color"][data-tag=light]');
+  const metaTagDark = document.querySelector('meta[name="theme-color"][data-tag=dark]');
+
+  // the background color is different based on screen size for certain combinations of CSS classes
+  const floatingSheetBreakpoint = window.matchMedia('(min-width: 720px)');
+
+  let isNavbarVisible = true;
+  const updateThemeColors = () => {
+    if (isNavbarVisible) {
+      metaTagLight.setAttribute('content', '#00223E');
+      metaTagDark.setAttribute('content', '#0C1F2D');
+    } else {
+      const bodyIsFullscreenSheet = document.body.classList.contains('look-sheet-bkg') && !floatingSheetBreakpoint.matches;
+      if (bodyIsFullscreenSheet) {
+        metaTagLight.setAttribute('content', '#ffffff');
+      } else {
+        metaTagLight.setAttribute('content', '#fffdf7');
+      }
+      // this is the same color regardless of sheet / no sheet
+      metaTagDark.setAttribute('content', '#17232D');
+    }
+  }
+
+  const observer = new IntersectionObserver((entries, _observer) => {
+    isNavbarVisible = entries[0].isIntersecting;
+    updateThemeColors();
+  }, {
+    root: null,
+    rootMargin: "0px",
+    threshold: [0],
+  });
+  observer.observe(nav);
+  floatingSheetBreakpoint.addEventListener('change', () => {
+    updateThemeColors();
+  });
+});
