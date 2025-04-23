@@ -44,7 +44,7 @@ theme = "paperesque"
 
 ### Homepage
 
-You've got a bunch of options for the homepage:
+You've got two options for the homepage:
 
 #### 1. A custom list of links.
 

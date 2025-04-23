@@ -23,4 +23,4 @@ From the example directory, run
 
 ```sh
 hugo serve --themesDir ../../..
-``
+```
