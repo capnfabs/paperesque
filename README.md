@@ -48,6 +48,8 @@ You've got a bunch of options for the homepage:
 
 #### 1. A custom list of links.
 
+**Example**: see [examples/1-with-homepage-menu](examples/1-with-homepage-menu).
+
 This was the _only_ thing supported until Dec 2022-ish.
 
 Add something like this to your site's `config.toml`:
@@ -70,17 +72,19 @@ Add something like this to your site's `config.toml`:
   url = "contact/"
 ```
 
-#### 2. Markdown content
+#### 2. A section + custom content in a sidebar.
 
-You can create a `/content/_index.md` and the content of that page will render as the homepage.
+**Example**: see [examples/4-with-homepage-sidebar-content](examples/4-with-homepage-sidebar-content).
 
-#### 3. A section
+This is what's in use on capnfabs.net today. I like it much better.
 
-You can create a `/content/_index.md` and in the [frontmatter](https://gohugo.io/content-management/front-matter/) add a `display_section` key. The name of that section will be used to render a list of content.
+To reproduce this:
+ - Ensure that there are no `[[params.menu]]` entries in your `config.toml` (which cause the list of links to be displayed, as per option 1 above).
+ - Create a `/content/_index.md`. The content of that page will render as the homepage.
+ - In the [frontmatter](https://gohugo.io/content-management/front-matter/), add a `display_section` key. The name of that section will be used to render a list of content.
 
-### 4. A section + custom content in a sidebar.
+Note that both the content and the `display_section` key are optional. If your `_index.md` only contains content, it will be centered in the page.
 
-Do the same as for option 3 ('a section'), but also include markdown content in that file. The markdown content will render on the left as a sidebar, and the list of section items will render in the main panel.
 
 ### Links in the top-right corner
 

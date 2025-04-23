@@ -34,6 +34,11 @@ pygmentsUseClasses = true
 # Turn this on if you want to disable margin notes everywhere!
 # disableMarginNotes = true
 
+# Ensure that there are *no* [[params.menu]] sections here so that the _index.md
+# file will be respected
+# [[params.menu]]
+#   name = "my favourite bird"
+#   url = "posts/kookaburra/"
 
 # Customize your top-right menu links here.
 

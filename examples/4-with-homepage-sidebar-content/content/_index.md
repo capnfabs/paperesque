@@ -1,7 +1,7 @@
 ---
 title: Paperesque theme example
 display_section: birds
-display_section_expanded_title: recent birds
+display_section_expanded_title: all the birds
 ---
 
 ### hello.
