@@ -162,8 +162,8 @@ params:
 You can build the example site with this theme with:
 
 ```
-cd exampleSite
-hugo serve --themesDir=../..
+cd examples/[example]
+hugo serve --themesDir=../../..
 ```
 
 ## Hacking / Modifying the JS

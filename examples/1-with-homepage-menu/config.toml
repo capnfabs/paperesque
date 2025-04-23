@@ -2,7 +2,7 @@ baseURL = "http://example.com/"
 languageCode = "en-us"
 title = "Paperesque theme example"
 theme = "paperesque"
-copyright = "© 2011-2020 Fabian Tamp"
+copyright = "© 2011-2025 Fabian Tamp"
 
 # We're building drafts in config so that you can see them in the example on
 # Hugo Themes; you almost certainly don't want this on your production site
