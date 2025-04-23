@@ -1,4 +1,4 @@
-## Example 4: homepage w/ section contents + sidebar
+## Example 2: homepage w/ section contents + sidebar
 
 This example has the contents of a section + the sidebar on the homepage.
 

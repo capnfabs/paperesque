@@ -48,43 +48,19 @@ You've got a bunch of options for the homepage:
 
 #### 1. A custom list of links.
 
-**Example**: see [examples/1-with-homepage-menu](examples/1-with-homepage-menu).
+**Example**: see [examples/1-with-homepage-menu](examples/1-with-homepage-menu/).
 
 This was the _only_ thing supported until Dec 2022-ish.
 
-Add something like this to your site's `config.toml`:
-
-```toml
-[[params.menu]]
-  name = "blog"
-  url = "posts/"
-
-[[params.menu]]
-  name = "tags"
-  url = "tags/"
-
-[[params.menu]]
-  name = "about"
-  url = "about/"
-
-[[params.menu]]
-  name = "contact"
-  url = "contact/"
-```
+See the [example readme](examples/1-with-homepage-menu/README.md) for details on how to implement this.
 
 #### 2. A section + custom content in a sidebar.
 
-**Example**: see [examples/4-with-homepage-sidebar-content](examples/4-with-homepage-sidebar-content).
+**Example**: see [examples/2-with-homepage-sidebar-content](examples/2-with-homepage-sidebar-content/).
 
 This is what's in use on capnfabs.net today. I like it much better.
 
-To reproduce this:
- - Ensure that there are no `[[params.menu]]` entries in your `config.toml` (which cause the list of links to be displayed, as per option 1 above).
- - Create a `/content/_index.md`. The content of that page will render as the homepage.
- - In the [frontmatter](https://gohugo.io/content-management/front-matter/), add a `display_section` key. The name of that section will be used to render a list of content.
-
-Note that both the content and the `display_section` key are optional. If your `_index.md` only contains content, it will be centered in the page.
-
+See the [example readme](examples/2-with-homepage-sidebar-content/README.md) for details on how to implement this.
 
 ### Links in the top-right corner
 
