@@ -27,3 +27,14 @@
 {{ partial "twitter_cards_default_small.html" . }}
 
 {{ template "_internal/schema.html" . }}
+
+{{- $imgs := partial "_funcs/get-page-images-resources-only" . -}}
+{{- $featured := index $imgs 0 -}}
+{{- if and $featured $featured.Image -}}
+  {{- with .Resources.Get $featured.Image -}}
+    {{- if gt (len .Content) (1_000_000) -}}
+      {{/* We warn instead of resizing automatically because I didn't want to have to maintain forks of all the metadata templates. */}}
+      {{- warnf "FYI: Image %s is larger than 1MB and might not show up on Signal link previews (will probably be fine elsewhere though)" .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

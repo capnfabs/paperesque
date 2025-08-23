@@ -1,0 +1,9 @@
+{{- $images := partial "_funcs/get-page-images" . -}}
+{{ $filtered := slice }}
+{{ range $images }}
+  {{/* Page resources always have .Image set, even if they're supplied via page / site params */}}
+  {{- if .Image -}}
+    {{- $filtered = $filtered | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $filtered -}}
