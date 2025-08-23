@@ -2,3 +2,5 @@
 node_modules
 *.js.map
 .DS_Store
+public/
+.hugo_build.lock
