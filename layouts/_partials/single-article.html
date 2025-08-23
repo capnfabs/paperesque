@@ -5,7 +5,10 @@
     itemtype="https://schema.org/Article" >
   <meta itemprop="author" content="{{ .Site.Params.Author }}" />
   <meta itemprop="publisher" content="{{ .Site.Params.Author }}" />
-  <meta itemprop="image" content="{{ partial "feature_image" . }}" />
+  {{- $images := partial "_funcs/get-page-images" . -}}
+  {{- with index $images 0 }}
+    <meta itemprop="image" content="{{ .Permalink }}" />
+  {{- end }}
   <h1 itemprop="name" id="title">{{ .Title }}</h1>
   <meta itemprop="headline" content="{{ .Title }}" />
   {{ with .Params.tags }}
