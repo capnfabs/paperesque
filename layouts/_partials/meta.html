@@ -32,9 +32,10 @@
 {{- $featured := index $imgs 0 -}}
 {{- if and $featured $featured.Image -}}
   {{- with .Resources.Get $featured.Image -}}
-    {{- if gt (len .Content) (1_000_000) -}}
+    {{- $fileSize := len .Content -}}
+    {{- if gt ($fileSize) (2_000_000) -}}
       {{/* We warn instead of resizing automatically because I didn't want to have to maintain forks of all the metadata templates. */}}
-      {{- warnf "FYI: Image %s is larger than 1MB and might not show up on Signal link previews (will probably be fine elsewhere though)" .RelPermalink -}}
+      {{- warnf "FYI: Image %s is %.2f MB. Anything larger than 2MB might not show up on Signal link previews." .RelPermalink (div $fileSize 1000.0 1000.0) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
