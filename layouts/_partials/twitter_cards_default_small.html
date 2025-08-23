@@ -1,22 +1,22 @@
 {{/* This is a modified copy/paste of https://github.com/gohugoio/hugo/blob/d913f46a8bf0cf3a612ac57516ed9c33bb16e04e/tpl/tplimpl/embedded/templates/twitter_cards.html */}}
 {{- with $.Params.images -}}
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
-{{ else -}}
-{{- $images := $.Resources.ByType "image" -}}
-{{- $featured := $images.GetMatch "*feature*" -}}
-{{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
-{{- with $featured -}}
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="{{ $featured.Permalink }}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
 {{- else -}}
-{{- with $.Site.Params.images -}}
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
-{{ else -}}
-<meta name="twitter:card" content="summary"/>
-{{- end -}}
-{{- end -}}
+  {{- $images := $.Resources.ByType "image" -}}
+  {{- $featured := $images.GetMatch "*feature*" -}}
+  {{- $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") -}}
+  {{- with $featured -}}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="{{ $featured.Permalink }}"/>
+  {{- else -}}
+    {{- with $.Site.Params.images -}}
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
+    {{- else -}}
+      <meta name="twitter:card" content="summary"/>
+    {{- end -}}
+  {{- end -}}
 {{- end }}
 <meta name="twitter:title" content="{{ .Title }}"/>
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
