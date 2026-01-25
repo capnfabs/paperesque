@@ -388,6 +388,15 @@ figcaption {
   color: var(--color-caption-text);
 }
 
+figure.long-caption figcaption {
+  /* Undo the stuff from figcaption */
+  font-style: normal;
+  text-align: left;
+
+  margin-left: 6em;
+  margin-right: 6em;
+}
+
 /*
 The figure is handling the margin here, its last child doesn't need to.
 This is a side-effect of using display: table on figure. This is gross and
