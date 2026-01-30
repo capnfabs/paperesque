@@ -393,8 +393,9 @@ figure.long-caption figcaption {
   font-style: normal;
   text-align: left;
 
-  margin-left: 6em;
-  margin-right: 6em;
+  /* Looks good on desktop and mobile */
+  margin-left: 3em;
+  margin-right: 3em;
 }
 
 /*
