@@ -1,3 +1,18 @@
+{{/* Annotations for https://github.com/capnfabs/hugo-vscode, used for completion and validation. */}}
+{{/* @lsp desc:"Adds a figure which fits itself to the page." */}}
+{{/* @lsp param:src desc:"The resource path" resource-extensions:.png,.jpg required:true type:resource-path allow-remote:false allow-unresolved:false */}}
+{{/* @lsp param:caption important:true desc:"Caption for the picture" */}}
+{{/* @lsp param:alt important:true desc:"Alt / accessibility description" */}}
+{{/* @lsp param:class desc:"CSS class on the figure element" */}}
+{{/* @lsp param:link type:url desc:"Wrap the image in a link" */}}
+{{/* @lsp param:target type:string desc:"Link target attribute (e.g. _blank)" */}}
+{{/* @lsp param:rel type:string desc:"Link rel attribute" */}}
+{{/* @lsp param:width type:string desc:"Override image width" */}}
+{{/* @lsp param:height type:string desc:"Override image height" */}}
+{{/* @lsp param:title type:string desc:"Figure title shown above the caption" */}}
+{{/* @lsp param:attr type:string desc:"Attribution text (supports Markdown)" */}}
+{{/* @lsp param:attrlink type:url desc:"URL to wrap around the attribution text" */}}
+
 {{- $path := (.Get "src") -}}
 {{- $original := .Page.Resources.GetMatch $path -}}
 {{- if not $original -}}

@@ -1,3 +1,16 @@
+{{/* Annotations for https://github.com/capnfabs/hugo-vscode, used for completion and validation. */}}
+{{/* @lsp desc:"Renders an SVG as a figure using an object tag (enables CSS animations in Safari)" */}}
+{{/* @lsp param:src type:resource-path resource-sources:page resource-extensions:.svg required:true desc:"Page-bundle path to the SVG file" */}}
+{{/* @lsp param:caption important:true type:string desc:"Caption (supports Markdown)" */}}
+{{/* @lsp param:class type:string desc:"CSS class on the figure element" */}}
+{{/* @lsp param:width type:string desc:"Object width attribute" */}}
+{{/* @lsp param:height type:string desc:"Object height attribute" */}}
+{{/* @lsp param:link type:url desc:"Wrap the SVG in a link" */}}
+{{/* @lsp param:target type:string desc:"Link target attribute (e.g. _blank)" */}}
+{{/* @lsp param:rel type:string desc:"Link rel attribute" */}}
+{{/* @lsp param:title type:string desc:"Figure title shown above the caption" */}}
+{{/* @lsp param:attr type:string desc:"Attribution text (supports Markdown)" */}}
+{{/* @lsp param:attrlink type:url desc:"URL to wrap around the attribution text" */}}
 {{- /* This is a copy paste of
     https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html
     from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag

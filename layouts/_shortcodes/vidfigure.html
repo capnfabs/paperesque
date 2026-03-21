@@ -1,3 +1,18 @@
+{{/* Annotations for https://github.com/capnfabs/hugo-vscode, used for completion and validation. */}}
+{{/* @lsp desc:"Renders a video player with controls as a figure" */}}
+{{/* @lsp param:src type:resource-path resource-sources:page resource-extensions:.mp4,.webm required:true desc:"Page-bundle path to the video file" */}}
+{{/* @lsp param:alt important:true type:string desc:"Alt / accessibility description" */}}
+{{/* @lsp param:caption important:true type:string desc:"Caption (supports Markdown)" */}}
+{{/* @lsp param:class type:string desc:"CSS class on the figure element" */}}
+{{/* @lsp param:id type:string desc:"ID attribute on the figure element" */}}
+{{/* @lsp param:width type:string desc:"Video width attribute" */}}
+{{/* @lsp param:height type:string desc:"Video height attribute" */}}
+{{/* @lsp param:link type:url desc:"Wrap the video in a link" */}}
+{{/* @lsp param:target type:string desc:"Link target attribute (e.g. _blank)" */}}
+{{/* @lsp param:rel type:string desc:"Link rel attribute" */}}
+{{/* @lsp param:title type:string desc:"Figure title shown above the caption" */}}
+{{/* @lsp param:attr type:string desc:"Attribution text (supports Markdown)" */}}
+{{/* @lsp param:attrlink type:url desc:"URL to wrap around the attribution text" */}}
 {{- /* Below is a copy paste of https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/shortcodes/figure.html from Hugo commit aba2647c152ffff927f42523b77ee6651630cd67, with the img tag replaced with a video */ -}}
 {{- /* Note that it presently uses `markdownify` instead of $.Page.RenderString for consistency with Hugo's `figure` shortcode.  */ -}}
 <figure{{ with .Get "class" }} class="{{ . }}" {{ end }}{{with .Get "id"}} id="{{ . }}" {{end}}>
