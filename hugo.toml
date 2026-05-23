@@ -5,3 +5,8 @@
 [outputFormats.droplist]
 mediatype = "text/droplist"
 isPlainText = true
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = '0.158.0'
