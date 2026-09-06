@@ -40,9 +40,9 @@
                         {{ $resized_2x.RelPermalink }} 2x"
             {{- /* Use small one by default to be kind to old browsers */}}
             src="{{ $resized_1x.RelPermalink }}"
-    {{ else }}
+    {{- else -}}
         <img src="{{ $original.RelPermalink }}"
-    {{ end }}
+    {{- end -}}
         {{- if or (.Get "alt") (.Get "caption") -}}
         alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
         {{- end -}}
